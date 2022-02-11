@@ -1,0 +1,42 @@
+html {
+  background: #fff;
+}
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.c-gnav {
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  li {
+    padding: 0 10px;
+  }
+  a {
+    &.is-active {
+      color: blue;
+    }
+  }
+}
+
+.c-footer {
+  text-align: center;
+  padding: 20px;
+}

@@ -1,0 +1,22 @@
+<header class="c-header">
+  <nav class="c-gnav">
+    <ul>
+      <% if (typeof linklists != 'undefined') { %>
+        <% linklists.main && linklists.main.forEach(item => { %>
+          <li>
+            <a <% if (item.current || item.active) { %>class="is-active"<% } %> href="<%= item.url %>"><%= item.title %></a>
+            <% if (item.links) { %>
+              <ul>
+                <% item.links.forEach(child => { %>
+                  <li>
+                    <a <% if (child.current) { %>class="is-active"<% } %> href="<%= child.url %>"><%= child.title %></a>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } %>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </nav>
+</header>
