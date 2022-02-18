@@ -1,9 +1,11 @@
 import { resolve, join } from "path";
 import fs from "fs";
 import { defineConfig } from "vite";
+// import viteImagemin from 'vite-plugin-imagemin'
 import { Watch } from "./plugins/watch";
 import { Layout } from "./plugins/layout";
 import { Controller } from "./plugins/controller";
+import { Imagemin } from "./plugins/imagemin";
 
 let input = {};
 
@@ -62,5 +64,32 @@ module.exports = defineConfig({
       },
     }),
     Controller(),
+    Imagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false,
+      },
+      optipng: {
+        optimizationLevel: 7,
+      },
+      mozjpeg: {
+        quality: 20,
+      },
+      pngquant: {
+        quality: [0.8, 0.9],
+        speed: 4,
+      },
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox',
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false,
+          },
+        ],
+      },
+    }),
   ],
 });
