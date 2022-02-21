@@ -2,7 +2,7 @@ import { resolve, join } from "path";
 import fs from "fs";
 import { defineConfig } from "vite";
 // import viteImagemin from 'vite-plugin-imagemin'
-import { Watch } from "./plugins/watch";
+import { Watcher } from "./plugins/watcher";
 import { Layout } from "./plugins/layout";
 import { Controller } from "./plugins/controller";
 import { Imagemin } from "./plugins/imagemin";
@@ -52,7 +52,7 @@ module.exports = defineConfig({
   },
 
   plugins: [
-    Watch([
+    Watcher([
       '**/*.ejs',
       '_public/**',
       '_data/**'

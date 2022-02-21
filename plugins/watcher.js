@@ -10,7 +10,7 @@ function convertPath(path) {
   return path.split(sep).join(posix.sep);
 }
 
-function Watch(paths = '', config = {}) {
+function Watcher(paths = '', config = {}) {
   return {
     name: "watch",
     apply: 'serve',
@@ -32,4 +32,4 @@ function Watch(paths = '', config = {}) {
   };
 }
 
-exports.Watch = Watch;
+exports.Watcher = Watcher;
