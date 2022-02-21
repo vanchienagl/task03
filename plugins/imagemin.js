@@ -117,7 +117,10 @@ function index(options = {}) {
         if (files.length) {
           const handles = files.map(async (publicFilePath) => {
             const filePath = publicFilePath.replace(publicDir + path.sep, "");
-            const fullFilePath = path$1.join(config.root, outputPath, filePath);
+            if (!path.isAbsolute(outputPath)) {
+              outputPath = path$1.join(config.root, outputPath);
+            }
+            const fullFilePath = path$1.join(outputPath, filePath);
             if (fs.existsSync(fullFilePath) === false) {
               return;
             }
