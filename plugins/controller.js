@@ -25,19 +25,22 @@ function Controller() {
     },
 
     closeBundle() {
-      fs.rm("dist/_virtual", { recursive: true }, (err) => {
-        config.logger.info(`Remove _virtual folder`);
-        if (err) {
-          console.log(err);
-        }
-      });
-      fs.rm("dist/_scss", { recursive: true }, (err) => {
-        config.logger.info(`Remove scss folder`);
-        if (err) {
-          console.log(err);
-        }
-      });
-
+      if (fs.existsSync('dist/_virtual')) {
+        fs.rm("dist/_virtual", { recursive: true }, (err) => {
+          config.logger.info(`Remove _virtual folder`);
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
+      if (fs.existsSync('dist/_scss')) {
+        fs.rm("dist/_scss", { recursive: true }, (err) => {
+          config.logger.info(`Remove scss folder`);
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
     },
   };
 }

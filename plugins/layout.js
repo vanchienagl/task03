@@ -1,26 +1,11 @@
 const ejs = require('ejs');
 const fs = require('fs')
 
-function checkLinks(links, ctx) {
-  return links.map((link) => {
-    let compactPath = ctx.path.replace(/index.html/, '');
-    let compactUrl = link.url.replace(/index.html/, '');
-    link.current = false;
-    link.active = false;
-    if (link.url == compactPath || link.url == ctx.path) {
-      link.current = true;
-    }
-    if (link.url != '/' && (compactPath.startsWith(link.url) || compactPath.startsWith(compactUrl))) {
-      link.active = true;
-    }
-    if (link.links) {
-      link.links = checkLinks(link.links, ctx)
-    }
-    return link;
-  });
-}
+const externalRE = /^(https?:)?\/\//;
+const isExternalUrl = (url) => externalRE.test(url);
 
 function Layout(options = {}) {
+  let config;
   let default_options = {
     dataFile: 'data.json',
     ejs: {
@@ -28,6 +13,30 @@ function Layout(options = {}) {
     },
   };
   options = Object.assign(default_options, options);
+
+  function checkLinks(links, ctx) {
+    return links.map((link) => {
+      const base = config.base.slice(0, -1);
+      const compactPath = ctx.path.replace(/index.html/, '');
+      const compactUrl = link.url.replace(/index.html/, '');
+      link.current = false;
+      link.active = false;
+      if (!isExternalUrl(link.url)) {
+        link.url = base + link.url;
+      }
+      if (link.url == compactPath || link.url == ctx.path) {
+        link.current = true;
+      }
+      if (link.url != '/' && (compactPath.startsWith(link.url) || compactPath.startsWith(compactUrl))) {
+        link.active = true;
+      }
+      if (link.links) {
+        link.links = checkLinks(link.links, ctx)
+      }
+      return link;
+    });
+  }
+
   return {
     name: "layout",
 
@@ -52,6 +61,7 @@ function Layout(options = {}) {
               }
             }
           }
+          data.env = config.env;
 
           html = ejs.render(
             html,

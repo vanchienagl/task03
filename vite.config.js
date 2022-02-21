@@ -1,7 +1,6 @@
 import { resolve, join } from "path";
 import fs from "fs";
-import { defineConfig } from "vite";
-// import viteImagemin from 'vite-plugin-imagemin'
+import { defineConfig, loadEnv } from "vite";
 import { Watcher } from "./plugins/watcher";
 import { Layout } from "./plugins/layout";
 import { Controller } from "./plugins/controller";
@@ -29,63 +28,69 @@ function fromDir(startPath, filter) {
 
 fromDir("src", ".html");
 
-module.exports = defineConfig({
-  root: "src",
-  publicDir: '_public',
-  build: {
-    outDir: "../dist",
-    lib: {
-      name: 'style',
-      entry: resolve(__dirname, 'src/_scss/style.js'),
-      formats: ['es'],
-    },
-    rollupOptions: {
-      input: input,
-      output: {
-        preserveModules: true,
-        entryFileNames: ({ name: fileName }) => {
-          return `${fileName}.js`
-        }
-      },
-    },
-    minify: false,
-  },
+module.exports = defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd())
+  const base = env.VITE_BASE_URL || '/';
 
-  plugins: [
-    Watcher([
-      '**/*.ejs',
-      '_public/**',
-      '_data/**'
-    ]),
-    Layout({
-      dataFile: 'src/_data/data.json',
-      ejs: {
-        views: ["src"],
+  return {
+    root: "src",
+    publicDir: '_public',
+    base,
+    build: {
+      outDir: "../dist",
+      lib: {
+        name: 'style',
+        entry: resolve(__dirname, 'src/_scss/style.js'),
+        formats: ['es'],
       },
-    }),
-    Controller(),
-    Imagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
+      rollupOptions: {
+        input: input,
+        output: {
+          preserveModules: true,
+          entryFileNames: ({ name: fileName }) => {
+            return `${fileName}.js`
+          }
+        },
       },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      jpegTran: {
-        progressive: true,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false,
-          },
-        ],
-      },
-    }),
-  ],
+      minify: false,
+    },
+
+    plugins: [
+      Watcher([
+        '**/*.ejs',
+        '_public/**',
+        '_data/**'
+      ]),
+      Layout({
+        dataFile: 'src/_data/data.json',
+        ejs: {
+          views: ["src"],
+        },
+      }),
+      Controller(),
+      Imagemin({
+        gifsicle: {
+          optimizationLevel: 7,
+          interlaced: false,
+        },
+        optipng: {
+          optimizationLevel: 7,
+        },
+        jpegTran: {
+          progressive: true,
+        },
+        svgo: {
+          plugins: [
+            {
+              name: 'removeViewBox',
+            },
+            {
+              name: 'removeEmptyAttrs',
+              active: false,
+            },
+          ],
+        },
+      }),
+    ],
+  }
 });
