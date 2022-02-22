@@ -3,14 +3,14 @@
   <nav class="c-gnav">
     <ul>
       <% if (typeof linklists != 'undefined') { %>
-        <% linklists.main && linklists.main.forEach(item => { %>
+        <% linklists.main && linklists.main.forEach(link => { %>
           <li>
-            <a <% if (item.current || item.active) { %>class="is-active"<% } %> href="<%= item.url %>"><%= item.title %></a>
-            <% if (item.links) { %>
+            <a <% if (link.current || link.active) { %>class="is-active"<% } %> href="<%= link.url %>"><%= link.title %></a>
+            <% if (link.links) { %>
               <ul>
-                <% item.links.forEach(child => { %>
+                <% link.links.forEach(child_link => { %>
                   <li>
-                    <a <% if (child.current) { %>class="is-active"<% } %> href="<%= child.url %>"><%= child.title %></a>
+                    <a <% if (child_link.current) { %>class="is-active"<% } %> href="<%= child_link.url %>"><%= child_link.title %></a>
                   </li>
                 <% }) %>
               </ul>
