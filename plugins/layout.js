@@ -92,7 +92,7 @@ function Layout(options = {}) {
           html = html.replace(re, '');
           temp.forEach((item) => {
             html = html.replace(
-              new RegExp(`{{\\s+${item.location}\\s+}}`, 'g'),
+              new RegExp(`{{\\s*${item.location}\\s*}}`, 'g'),
               item.content
             );
           })
