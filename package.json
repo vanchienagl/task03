@@ -1,10 +1,20 @@
 {
-  "name": "vite-template",
-  "version": "0.0.0",
+  "name": "agl_vite_template",
+  "version": "1.0.0",
+  "description": "AGL's template, using vite",
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allgrow-labo/agl_vite_template"
+  },
+  "author": "AGL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allgrow-labo/agl_vite_template/issues"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
@@ -25,5 +35,6 @@
     "postcss": "^8.4.6",
     "sass": "^1.49.0",
     "vite": "^2.7.2"
-  }
+  },
+  "homepage": "https://github.com/allgrow-labo/agl_vite_template"
 }
