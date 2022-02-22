@@ -61,7 +61,7 @@ function Layout(options = {}) {
               }
             }
           }
-          data.env = config.env;
+          data = { ...data, ...config.env};
 
           html = ejs.render(
             html,
