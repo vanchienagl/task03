@@ -1,8 +1,9 @@
-const fs = require("fs");
-const path = require('path')
-var beautify_html = require('js-beautify').html;
+import {existsSync, rm} from "fs";
+// import path from 'path';
+import {html as beautify_html} from 'js-beautify';
 
 function Controller() {
+  let config;
   return {
     name: "controller",
     apply: "build",
@@ -12,12 +13,13 @@ function Controller() {
     },
 
     transformIndexHtml(html) {
+      console.log(config);
       html = html.replace(
-        /<script type="module" crossorigin src="\/_scss\/style.js"><\/script>/,
+        new RegExp(`<script type="module" crossorigin src="${config.base}_scss/style.js"></script>`),
         ``
       );
       html = html.replace(
-        /<script type="module" crossorigin src="\/_virtual\/modulepreload-polyfill.js"><\/script>/,
+        new RegExp(`<script type="module" crossorigin src="${config.base}_virtual/modulepreload-polyfill.js"></script>`),
         ``
       );
       html = beautify_html(html, { indent_size: 2, preserve_newlines: false, indent_inner_html: true });
@@ -25,16 +27,16 @@ function Controller() {
     },
 
     closeBundle() {
-      if (fs.existsSync('dist/_virtual')) {
-        fs.rm("dist/_virtual", { recursive: true }, (err) => {
+      if (existsSync('dist/_virtual')) {
+        rm("dist/_virtual", { recursive: true }, (err) => {
           config.logger.info(`Remove _virtual folder`);
           if (err) {
             console.log(err);
           }
         });
       }
-      if (fs.existsSync('dist/_scss')) {
-        fs.rm("dist/_scss", { recursive: true }, (err) => {
+      if (existsSync('dist/_scss')) {
+        rm("dist/_scss", { recursive: true }, (err) => {
           config.logger.info(`Remove scss folder`);
           if (err) {
             console.log(err);
@@ -45,4 +47,5 @@ function Controller() {
   };
 }
 
-exports.Controller = Controller;
+const _Controller = Controller;
+export {_Controller as Controller};
