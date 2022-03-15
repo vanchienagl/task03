@@ -1,5 +1,20 @@
 # agl_vite_template
 
+- [agl_vite_template](#agl_vite_template)
+  - [Setup](#setup)
+  - [Starting the development server](#starting-the-development-server)
+  - [Template](#template)
+    - [Support blocks for EJS](#support-blocks-for-ejs)
+    - [Data Flow](#data-flow)
+  - [Static Asset Handling](#static-asset-handling)
+    - [The `_public` Directory](#the-_public-directory)
+  - [Building for Production](#building-for-production)
+    - [Public Base Path](#public-base-path)
+  - [Deploying](#deploying)
+    - [Building The App](#building-the-app)
+    - [Testing The App Locally](#testing-the-app-locally)
+  - [`.env` Files](#env-files)
+
 ## Setup
 
 Match local node.js version with project version
@@ -8,11 +23,19 @@ Match local node.js version with project version
 nvm use
 ```
 
+Install pnpm
+
+```sh
+npm i -g pnpm
+```
+
 Install node_modules
 
 ```sh
-npm i -g pnpm && pnpm i
+pnpm i
 ```
+
+---
 
 ## Starting the development server
 
@@ -23,6 +46,8 @@ pnpm dev
 ```
 
 By default, the server starts on port 3000. You can view the app by visiting: http://localhost:3000 .
+
+---
 
 ## Template
 
@@ -97,6 +122,31 @@ module.exports = defineConfig(() => {
 <% } %>
 ```
 
+---
+
+## Static Asset Handling
+
+### The `_public` Directory
+
+Assets in this directory will be served at root path `/` during dev, and copied to the root of the dist directory as-is.
+
+Note that:
+
+* You should always reference `public` assets using root absolute path - for example, `_public/icon.png` should be referenced in source code as `/icon.png`.
+* Assets in public cannot be imported from JavaScript.
+
+---
+
+## Building for Production
+
+### Public Base Path
+
+If you are deploying your project under a nested public path (Ex: `/~aglstaff/yourname/task`), simply specify in `VITE_BASE_URL` in `env.production` and all asset paths will be rewritten accordingly.
+
+JS-imported asset URLs, CSS `url()` references, and asset references in your `.html` files are all automatically adjusted to respect this option during build.
+
+---
+
 ## Deploying
 
 ### Building The App
@@ -117,6 +167,8 @@ pnpm preview
 ```
 
 This command will boot up local static web server that serves the files from `dist` at `http://localhost:4173`. It's an easy way to check if the production build looks OK in your local environment.
+
+---
 
 ## `.env` Files
 
