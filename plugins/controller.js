@@ -1,6 +1,6 @@
-import {existsSync, rm} from "fs";
+import { existsSync, rm } from "fs";
 // import path from 'path';
-import {html as beautify_html} from 'js-beautify';
+import { html as beautify_html } from "js-beautify";
 
 function Controller() {
   let config;
@@ -9,25 +9,32 @@ function Controller() {
     apply: "build",
 
     configResolved(resolvedConfig) {
-      config = resolvedConfig
+      config = resolvedConfig;
     },
 
     transformIndexHtml(html) {
-      console.log(config);
       html = html.replace(
-        new RegExp(`<script type="module" crossorigin src="${config.base}_scss/style.js"></script>`),
+        new RegExp(
+          `<script type="module" crossorigin src="${config.base}_scss/style.js"></script>`
+        ),
         ``
       );
       html = html.replace(
-        new RegExp(`<script type="module" crossorigin src="${config.base}_virtual/modulepreload-polyfill.js"></script>`),
+        new RegExp(
+          `<script type="module" crossorigin src="${config.base}_virtual/modulepreload-polyfill.js"></script>`
+        ),
         ``
       );
-      html = beautify_html(html, { indent_size: 2, preserve_newlines: false, indent_inner_html: true });
+      html = beautify_html(html, {
+        indent_size: 2,
+        preserve_newlines: false,
+        indent_inner_html: true,
+      });
       return html;
     },
 
     closeBundle() {
-      if (existsSync('dist/_virtual')) {
+      if (existsSync("dist/_virtual")) {
         rm("dist/_virtual", { recursive: true }, (err) => {
           config.logger.info(`Remove _virtual folder`);
           if (err) {
@@ -35,7 +42,7 @@ function Controller() {
           }
         });
       }
-      if (existsSync('dist/_scss')) {
+      if (existsSync("dist/_scss")) {
         rm("dist/_scss", { recursive: true }, (err) => {
           config.logger.info(`Remove scss folder`);
           if (err) {
@@ -48,4 +55,4 @@ function Controller() {
 }
 
 const _Controller = Controller;
-export {_Controller as Controller};
+export { _Controller as Controller };
