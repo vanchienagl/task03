@@ -36,6 +36,9 @@ module.exports = defineConfig(({ mode }) => {
     root: "src",
     publicDir: '_public',
     base,
+    server: {
+      open: "/index.html"
+    },
     build: {
       outDir: "../dist",
       lib: {

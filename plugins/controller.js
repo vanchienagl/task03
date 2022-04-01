@@ -1,5 +1,5 @@
 import { existsSync, rm } from "fs";
-// import path from 'path';
+import { relative } from "path";
 import { html as beautify_html } from "js-beautify";
 
 function Controller() {
@@ -12,25 +12,34 @@ function Controller() {
       config = resolvedConfig;
     },
 
-    transformIndexHtml(html) {
-      html = html.replace(
-        new RegExp(
-          `<script type="module" crossorigin src="${config.base}_scss/style.js"></script>`
-        ),
-        ``
-      );
-      html = html.replace(
-        new RegExp(
-          `<script type="module" crossorigin src="${config.base}_virtual/modulepreload-polyfill.js"></script>`
-        ),
-        ``
-      );
-      html = beautify_html(html, {
-        indent_size: 2,
-        preserve_newlines: false,
-        indent_inner_html: true,
-      });
-      return html;
+    transformIndexHtml: {
+      enforce: "post",
+      transform(html, ctx) {
+        let { base, root } = config;
+        let { filename } = ctx;
+        html = html.replace(
+          new RegExp(
+            `<script type="module" crossorigin src="${base}_scss/style.js"></script>`
+          ),
+          ``
+        );
+        html = html.replace(
+          new RegExp(
+            `<script type="module" crossorigin src="${base}_virtual/modulepreload-polyfill.js"></script>`
+          ),
+          ``
+        );
+        if (base.startsWith('./')) {
+          let relativePath = relative(filename, root).slice(0, -2).replace(/\\/g, '/');
+          html = html.replace(/\.\//g, relativePath);
+        }
+        html = beautify_html(html, {
+          indent_size: 2,
+          preserve_newlines: false,
+          indent_inner_html: true,
+        });
+        return html;
+      }
     },
 
     closeBundle() {

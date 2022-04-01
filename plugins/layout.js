@@ -15,23 +15,30 @@ function Layout(options = {}) {
   options = Object.assign(default_options, options);
 
   function checkLinks(links, ctx) {
+    let isParentActive = false 
     return links.map((link) => {
-      const base = config.base.slice(0, -1);
+      const base = config.base;
       const compactPath = ctx.path.replace(/index.html/, '');
       const compactUrl = link.url.replace(/index.html/, '');
       link.current = false;
       link.active = false;
-      if (!isExternalUrl(link.url)) {
-        link.url = base + link.url;
+      if (!isExternalUrl(link.url) && !link.url.startsWith('#')) {
+        let newLink = link.url.startsWith('/') ? link.url.substr(1) : link.url;
+        link.url = base + newLink;
       }
       if (link.url == compactPath || link.url == ctx.path) {
         link.current = true;
+        isParentActive = true;
       }
       if (link.url != '/' && (compactPath.startsWith(link.url) || compactPath.startsWith(compactUrl))) {
         link.active = true;
       }
       if (link.links) {
-        link.links = checkLinks(link.links, ctx)
+        var result = checkLinks(link.links, ctx);
+        link.links = result.result
+        if (result.isParentActive) {
+          link.active = true;
+        }
       }
       return link;
     });
@@ -57,7 +64,7 @@ function Layout(options = {}) {
           if (data.linklists) {
             for (const key in data.linklists) {
               if (Object.hasOwnProperty.call(data.linklists, key)) {
-                data.linklists[key] = checkLinks(data.linklists[key], ctx)
+                data.linklists[key] = checkLinks(data.linklists[key], ctx).result
               }
             }
           }
