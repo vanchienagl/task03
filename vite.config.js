@@ -37,7 +37,7 @@ module.exports = defineConfig(({ mode }) => {
     publicDir: '_public',
     base,
     server: {
-      open: "/index.html"
+      open: `${base}index.html`
     },
     build: {
       outDir: "../dist",
@@ -52,6 +52,10 @@ module.exports = defineConfig(({ mode }) => {
           preserveModules: true,
           entryFileNames: ({ name: fileName }) => {
             return `${fileName}.js`
+          },
+          assetFileNames: (data) => {
+            var ext = /(?:\.([^.]+))?$/.exec(data.name)[1];
+            return `assets/${ext}/${data.name}`
           }
         },
       },
