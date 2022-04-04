@@ -16,7 +16,7 @@ function Layout(options = {}) {
 
   function checkLinks(links, ctx) {
     let isParentActive = false 
-    return links.map((link) => {
+    let result = links.map((link) => {
       const base = config.base;
       const compactPath = ctx.path.replace(/index.html/, '');
       const compactUrl = link.url.replace(/index.html/, '');
@@ -42,6 +42,10 @@ function Layout(options = {}) {
       }
       return link;
     });
+    return {
+      result,
+      isParentActive
+    }
   }
 
   return {
