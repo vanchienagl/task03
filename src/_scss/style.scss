@@ -11,7 +11,7 @@
 .sp-only {
 	display: none;
 }
-@include breakpoint(sp) {
+@include sp {
 	.pc-only {
 		display: none;
 	}
