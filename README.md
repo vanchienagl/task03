@@ -3,6 +3,7 @@
 - [agl_vite_template](#agl_vite_template)
   - [Setup](#setup)
   - [Starting the development server](#starting-the-development-server)
+  - [Start the Browsersync service with external URL](#start-the-browsersync-service-with-external-url)
   - [Template](#template)
     - [Support blocks for EJS](#support-blocks-for-ejs)
     - [Data Flow](#data-flow)
@@ -45,7 +46,15 @@ After install node_modules, you can start the development server by running the 
 pnpm dev
 ```
 
-By default, the server starts on port 3000. You can view the app by visiting: http://localhost:3000 .
+By default, the server starts on port 3000. You can view the app by visiting: http://localhost:3000.
+
+---
+
+## Start the Browsersync service with external URL
+
+```sh
+pnpm external
+```
 
 ---
 

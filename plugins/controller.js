@@ -1,6 +1,7 @@
 import { existsSync, rm } from "fs";
 import { relative } from "path";
 import { html as beautify_html } from "js-beautify";
+var bs = require("browser-sync").create();
 
 function Controller() {
   let config;
@@ -10,6 +11,12 @@ function Controller() {
 
     configResolved(resolvedConfig) {
       config = resolvedConfig;
+      if (config.mode === 'external') {
+        bs.init({
+          server: "./dist",
+          open: 'external',
+        });
+      }
     },
 
     transformIndexHtml: {
@@ -59,6 +66,7 @@ function Controller() {
           }
         });
       }
+      bs.reload();
     },
   };
 }

@@ -4,9 +4,9 @@
   "description": "AGL's template, using vite",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "external": "concurrently --kill-others -n=browser,build \"browser-sync dist -w\" \"npm run build -- --watch\""
+    "external": "vite build --emptyOutDir --watch --mode=external"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.9",
-    "concurrently": "^7.1.0",
     "debug": "^4.3.3",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
