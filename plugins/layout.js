@@ -18,8 +18,8 @@ function Layout(options = {}) {
     let isParentActive = false 
     let result = links.map((link) => {
       const base = config.base;
-      const compactPath = ctx.path.replace(/index.html/, '');
-      const compactUrl = link.url.replace(/index.html/, '');
+      const compactPath = (base + ctx.path.replace(/index.html/, '')).replace('//', '/');
+      const compactUrl = (base + link.url.replace(/index.html/, '')).replace('//', '/');
       link.current = false;
       link.active = false;
       if (!isExternalUrl(link.url) && !link.url.startsWith('#')) {
