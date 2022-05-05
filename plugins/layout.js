@@ -30,7 +30,7 @@ function Layout(options = {}) {
         link.current = true;
         isParentActive = true;
       }
-      if (link.url != '/' && (compactPath.startsWith(link.url) || compactPath.startsWith(compactUrl))) {
+      if (link.url != base && (compactPath.startsWith(link.url) || compactPath.startsWith(compactUrl))) {
         link.active = true;
       }
       if (link.links) {
