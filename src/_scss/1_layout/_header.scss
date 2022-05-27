@@ -1,26 +1,28 @@
 /* Header
 ------------------------------------------------------------*/
-.c-header{
+.c-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     position: relative;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
 }
 /* Main menu
 ------------------------------------------------------------*/
-.c-gnav{
-    ul{
-
+.c-gnav {
+    ul {
     }
-    li{
+
+    li {
         display: inline-block;
-        +li{
+
+        + li {
             margin-left: 20px;
         }
     }
-    a{
+
+    a {
         font-size: 1.6rem;
         text-transform: capitalize;
     }
