@@ -154,6 +154,48 @@ code {
   </div>
 </div>
 `;
+
+function createHeading(text) {
+  return `<pre class="message"><span class="plugin">[${text}]</span></pre>`;
+}
+
+function createLink(url, text) {
+  let link = document.createElement("a");
+  link.textContent = text;
+  link.className = "file-link";
+  link.onclick = () => {
+    fetch("/__open-in-editor?file=" + encodeURIComponent(url));
+  };
+  return link;
+}
+
+function createFile(link) {
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+  td.setAttribute("colspan", "6");
+  td.classList = "file";
+  td.appendChild(link);
+  tr.appendChild(td);
+  return tr;
+}
+
+function createMessage(severity, line, col, message, rule) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <tr>
+      <td class="severity ${severity === "warning" ? "warning" : "error"}">${
+    severity === "warning" ? "⚠" : "✖"
+  }</td>
+      <td class="line">${line}</td>
+      <td>:</td>
+      <td class="column">${col}</td>
+      <td class="text">${message}</td>
+      <td class="rule">${rule}</td>
+    </tr>
+  `;
+  return row;
+}
+
 class LintErrorOverlay extends HTMLElement {
   constructor() {
     super();
@@ -177,41 +219,33 @@ class LintErrorOverlay extends HTMLElement {
 class HTMLHint extends HTMLElement {
   constructor(data) {
     super();
-    console.log(data)
-
-    function escapeHtml(unsafe)
-    {
-        return unsafe
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+    if (!data) return;
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
     function repeatStr(n, str) {
-        return new Array(n + 1).join(str || ' ');
+      return new Array(n + 1).join(str || " ");
     }
 
-    if (!data) return;
-    let errored = data.some(item => item.warnings.length > 0)
+    const errored = data.some((item) => item.warnings.length > 0);
     if (errored) {
-      this.innerHTML = `<pre class="message"><span class="plugin">[htmlhint]</span></pre>`;
-      const list = document.createElement('div');
-      list.classList = 'list';
-      data.forEach(err => {
+      this.innerHTML = createHeading("htmlhint");
+      const list = document.createElement("div");
+      list.classList = "list";
+      data.forEach((err) => {
         if (!err.warnings.length) return;
-        let link = document.createElement("a");
-        link.textContent = err.relativeFilePath;
-        link.className = "file-link";
-        link.onclick = () => {
-          fetch("/__open-in-editor?file=" + encodeURIComponent(err.filePath));
-        };
-        let file = document.createElement("pre");
+        const link = createLink(err.filePath, err.relativeFilePath);
+        const file = document.createElement("pre");
         file.className = "file";
         file.appendChild(link);
         list.appendChild(file);
 
-        err.warnings.forEach(hint => {
+        err.warnings.forEach((hint) => {
           const leftWindow = 35;
           const rightWindow = leftWindow + 20;
           let evidence = hint.evidence;
@@ -221,32 +255,40 @@ class HTMLHint extends HTMLElement {
           let leftCol = col > leftWindow + 1 ? col - leftWindow : 1;
           let rightCol = Math.min(evidenceCount, col + rightWindow);
           if (col < leftWindow + 1) {
-              rightCol += leftWindow - col + 1;
+            rightCol += leftWindow - col + 1;
           }
-          evidence = evidence.replace(/\t/g, ' ').substring(leftCol - 1, rightCol);
+          evidence = evidence
+            .replace(/\t/g, " ")
+            .substring(leftCol - 1, rightCol);
           if (leftCol > 1) {
-              evidence = `...${evidence}`;
-              leftCol -= 3;
+            evidence = `...${evidence}`;
+            leftCol -= 3;
           }
           if (rightCol < evidenceCount) {
-              evidence += '...';
+            evidence += "...";
           }
           let pointCol = col - leftCol;
-          const match = evidence.substring(0, pointCol).match(/[^\u0000-\u00ff]/g);
+          const match = evidence
+            .substring(0, pointCol)
+            .match(/[^\u0000-\u00ff]/g);
           if (match !== null) {
-              pointCol += match.length;
+            pointCol += match.length;
           }
 
           let row = document.createElement("div");
-          row.classList = 'row';
+          row.classList = "row";
 
           row.innerHTML = `
             <div class="evidence">L${line} |${escapeHtml(evidence)}</div>
-            <div class="message">${repeatStr(String(line).length + pointCol + 3)}^ ${hint.message} <span class="rule">(${hint.rule.id})</span></div>
+            <div class="message">${repeatStr(
+              String(line).length + pointCol + 3
+            )}^ ${hint.message} <span class="rule">(${
+            hint.rule.id
+          })</span></div>
           `;
           list.appendChild(row);
-        })
-      })
+        });
+      });
       this.appendChild(list);
     }
   }
@@ -256,45 +298,58 @@ class Stylelint extends HTMLElement {
   constructor(data) {
     super();
     if (!data) return;
-    let errored = data.some(item => item.warnings.length > 0)
+    let errored = data.some((item) => item.warnings.length > 0);
     if (errored) {
-      this.innerHTML = `<pre class="message"><span class="plugin">[stylelint]</span></pre>`;
+      this.innerHTML = createHeading("stylelint");
       const list = document.createElement("table");
-      list.classList = 'list';
+      list.classList = "list";
       data.forEach((err) => {
         if (!err.warnings.length) return;
-        const link = document.createElement("a");
-        link.textContent = err.relativeFilePath;
-        link.className = "file-link";
-        link.onclick = () => {
-          fetch("/__open-in-editor?file=" + encodeURIComponent(err.source));
-        };
-
-        const td = document.createElement("td");
-        td.setAttribute("colspan", "6");
-        td.classList = "file";
-        td.appendChild(link);
-
-        const tr = document.createElement("tr");
-        tr.appendChild(td);
-
-        list.appendChild(tr);
+        const link = createLink(err.source, err.relativeFilePath);
+        const file = createFile(link);
+        list.appendChild(file);
 
         err.warnings.forEach((warning) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-                <tr>
-                  <td class="severity ${
-                    warning.severity === "warning" ? "warning" : "error"
-                  }">${warning.severity === "warning" ? "⚠" : "✖"}</td>
-                  <td class="line">${warning.line}</td>
-                  <td>:</td>
-                  <td class="column">${warning.column}</td>
-                  <td class="text">${warning.text}</td>
-                  <td class="rule">${warning.rule}</td>
-                </tr>
-              `;
-          list.appendChild(row);
+          const messageRow = createMessage(
+            warning.severity,
+            warning.line,
+            warning.column,
+            warning.text,
+            warning.rule
+          );
+          list.appendChild(messageRow);
+        });
+      });
+
+      this.appendChild(list);
+    }
+  }
+}
+
+class ESLint extends HTMLElement {
+  constructor(data) {
+    super();
+    if (!data) return;
+    let errored = data.some((item) => item.messages.length > 0);
+    if (errored) {
+      this.innerHTML = createHeading("eslint");
+      const list = document.createElement("table");
+      list.classList = "list";
+      data.forEach((err) => {
+        if (!err.messages.length) return;
+        const link = createLink(err.filePath, err.relativeFilePath);
+        const file = createFile(link);
+        list.appendChild(file);
+
+        err.messages.forEach((message) => {
+          const messageRow = createMessage(
+            message.severity === 1 ? "warning" : "error",
+            message.line,
+            message.column,
+            message.message,
+            message.ruleId
+          );
+          list.appendChild(messageRow);
         });
       });
 
@@ -304,18 +359,31 @@ class Stylelint extends HTMLElement {
 }
 
 const overlayId = "lint-error-overlay";
-if (customElements && !customElements.get(overlayId)) {
-  customElements.define(overlayId, LintErrorOverlay);
-}
 
-const htmlhintId = "html-hint";
-if (customElements && !customElements.get(htmlhintId)) {
-  customElements.define(htmlhintId, HTMLHint);
-}
+const arrayElements = [
+  {
+    name: overlayId,
+    class: LintErrorOverlay,
+  },
+  {
+    name: "html-hint",
+    class: HTMLHint,
+  },
+  {
+    name: "style-lint",
+    class: Stylelint,
+  },
+  {
+    name: "es-lint",
+    class: ESLint,
+  },
+];
 
-const stylelintId = "style-lint";
-if (customElements && !customElements.get(stylelintId)) {
-  customElements.define(stylelintId, Stylelint);
+if (customElements) {
+  arrayElements.forEach((element) => {
+    if (customElements.get(element.name)) return;
+    customElements.define(element.name, element.class);
+  });
 }
 
 function createErrorOverlay(data) {
@@ -324,25 +392,27 @@ function createErrorOverlay(data) {
     overlay = document.body.appendChild(new LintErrorOverlay());
   }
 
-  let body = overlay.shadowRoot.querySelector('.body');
+  let body = overlay.shadowRoot.querySelector(".body");
   body.innerHTML = "";
 
-  data.forEach(lint => {
+  data.forEach((lint) => {
     if (lint.results.length) {
       switch (lint.id) {
         case "htmlhint":
-          body.appendChild(new HTMLHint(lint.results))
+          body.appendChild(new HTMLHint(lint.results));
           break;
         case "stylelint":
-          body.appendChild(new Stylelint(lint.results))
+          body.appendChild(new Stylelint(lint.results));
           break;
-      
+        case "eslint":
+          body.appendChild(new ESLint(lint.results));
+          break;
+
         default:
           break;
       }
     }
-  })
-
+  });
 }
 function clearErrorOverlay() {
   document.querySelectorAll(overlayId).forEach((n) => n.close());
@@ -354,7 +424,11 @@ if (import.meta.hot) {
   });
   import.meta.hot.send("client:ready");
   import.meta.hot.on("lint:results", (data) => {
-    let errored = data.some(item => item.results.some(result => result.warnings.length > 0));
+    let errored = data.some((lint) =>
+      lint.results.some(
+        (result) => result.warnings?.length || result.messages?.length
+      )
+    );
     if (errored) {
       createErrorOverlay(data);
     } else {

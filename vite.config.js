@@ -106,6 +106,13 @@ module.exports = defineConfig(({ mode }) => {
         },
         stylelint: {
           files: ['src/**/*.{vue,css,scss,sass,less,styl,svelte}'],
+          fix: true
+        },
+        eslint: {
+          files: ['src/_public/assets/js/**/*.js'],
+          options: {
+            fix: true
+          }
         }
       }),
     ],

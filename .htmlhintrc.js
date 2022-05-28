@@ -15,7 +15,7 @@ module.exports = {
   "tag-pair": true,
   "tagname-lowercase": true,
   "class-value": {
-    "regId": "^[a-z]+-([a-z0-9]+)?((__[a-z0-9]+)+)?(--[a-z0-9]+){0,1}$",
-    "message": "The class attribute values must be in FLOCSS and BEM rules"
-  }
-}
+    regId: "^[a-z]+-([a-z0-9]+)?((__[a-z0-9]+)+)?(--[a-z0-9]+){0,1}$",
+    message: "The class attribute values must be in FLOCSS and BEM rules",
+  },
+};

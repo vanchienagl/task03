@@ -1,8 +1,10 @@
-import stylelintFormatter from 'stylelint-formatter-pretty';
-import stylelint from 'stylelint';
 import * as path from 'path';
-import htmlhint from './utils/htmlhint';
 import colors from "picocolors";
+import htmlhint from './utils/htmlhint';
+import stylelint from 'stylelint';
+import stylelintFormatter from 'stylelint-formatter-pretty';
+import { ESLint } from 'eslint';
+import eslintFormatter from 'eslint-formatter-pretty';
 
 
 function Lint(options = {}) {
@@ -16,6 +18,13 @@ function Lint(options = {}) {
       cache: true,
       cacheLocation: path.join('node_modules', '.vite', 'stylelint'),
     },
+    eslint: {
+      files: ['src/_public/assets/js/**/*.js'],
+      options: {
+        cache: true,
+        cacheLocation: path.join('node_modules', '.vite', 'eslint'),
+      }
+    }
   };
   options = Object.assign(default_options, options);
 
@@ -38,6 +47,9 @@ function Lint(options = {}) {
           })
           sendToClient();
         })
+        .catch(error => {
+          console.log(error)
+        });
     }
 
     if (options.stylelint) {
@@ -50,13 +62,32 @@ function Lint(options = {}) {
           }
           storage.push({
             id: 'stylelint',
-            results: formatResults(results)
+            results: formatStylelintResults(results)
           })
           sendToClient();
         })
         .catch(error => {
-          this.warn('It looks like you configured bad stylelint options.');
-          this.error(error);
+          console.log(error)
+        });
+    }
+
+    if (options.eslint) {
+      const eslint = new ESLint(options.eslint.options);
+      eslint
+        .lintFiles(options.eslint.files)
+        .then((results) => {
+          if (results.some(result => result.messages.length > 0)) {
+            console.log(`\n  ${colors.magenta('[ESLint]')}`);
+            console.log(eslintFormatter(results));
+          }
+          storage.push({
+            id: 'eslint',
+            results: formatESLintResults(results)
+          })
+          sendToClient();
+        })
+        .catch(error => {
+          console.log(error)
         });
     }
   }
@@ -66,11 +97,66 @@ function Lint(options = {}) {
     ws.send('lint:results', storage);
   }
 
-  function formatResults(results) {
+  function formatStylelintResults(results) {
     return results
 			.sort((a, b) => a.warnings.length - b.warnings.length)
       .map(result => {
         result.relativeFilePath = path.relative('.', result.source);
+        result.warnings
+					.sort((a, b) => {
+						if (a.severity === b.severity) {
+							if (a.line === b.line) {
+								return a.column < b.column ? -1 : 1;
+							}
+
+							return a.line < b.line ? -1 : 1;
+						}
+
+						if (a.severity === 2 && b.severity !== 2) {
+							return 1;
+						}
+
+						return -1;
+					})
+        return result
+      })
+  }
+
+  function formatESLintResults(results) {
+    return results
+      .sort((a, b) => {
+        if (a.errorCount === b.errorCount) {
+          return b.warningCount - a.warningCount;
+        }
+
+        if (a.errorCount === 0) {
+          return -1;
+        }
+
+        if (b.errorCount === 0) {
+          return 1;
+        }
+
+        return b.errorCount - a.errorCount;
+      })
+      .map(result => {
+        result.relativeFilePath = path.relative('.', result.filePath);
+        result.messages
+          .sort((a, b) => {
+            if (a.fatal === b.fatal && a.severity === b.severity) {
+              if (a.line === b.line) {
+                return a.column < b.column ? -1 : 1;
+              }
+
+              return a.line < b.line ? -1 : 1;
+            }
+
+            if ((a.fatal || a.severity === 2) && (!b.fatal || b.severity !== 2)) {
+              return 1;
+            }
+
+            return -1;
+          })
         return result
       })
   }
@@ -94,12 +180,13 @@ function Lint(options = {}) {
       ws = server.ws;
       server.watcher.on("ready", handleLint);
       server.watcher.on("change", handleLint);
+      server.watcher.on("add", handleLint);
       ws.on('client:ready', sendToClient);
     },
 
     transformIndexHtml: {
       enforce: "pre",
-      transform(html, ctx) {
+      transform() {
         if (!options.errorOverlay) return null;
         return [
           {

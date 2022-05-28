@@ -1,10 +1,8 @@
 module.exports = {
   extends: "stylelint-config-sass-guidelines",
-  plugins: [
-    "stylelint-scss"
-  ],
+  plugins: ["stylelint-scss"],
   rules: {
-    "indentation": 4,
+    indentation: 4,
     "order/properties-alphabetical-order": null,
     "order/order": null,
     "block-no-empty": null,
@@ -15,4 +13,5 @@ module.exports = {
     "selector-max-id": 2,
     "string-quotes": "double",
   },
-}
+  ignoreFiles: ["node_modules/**/*", "dist/**/*", "src/_public/**/*"],
+};
