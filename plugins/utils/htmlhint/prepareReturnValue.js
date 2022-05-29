@@ -1,4 +1,3 @@
-
 function prepareReturnValue(results, maxWarnings, formatter, cwd) {
   const errored = results.some(result => result.warnings.length > 0);
   const returnValue = {

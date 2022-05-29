@@ -5,7 +5,7 @@ import { Watcher } from "./plugins/watcher";
 import { Layout } from "./plugins/layout";
 import { Controller } from "./plugins/controller";
 import { Imagemin } from "./plugins/imagemin";
-import { Lint } from "./plugins/lint";
+import { Linter } from "./plugins/linter";
 
 let input = {};
 
@@ -99,7 +99,7 @@ module.exports = defineConfig(({ mode }) => {
           ],
         },
       }),
-      Lint({
+      Linter({
         errorOverlay: true,
         htmlhint: {
           files: ['src/**/*.{html,ejs}'],

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import globby from 'globby';
+import fastGlob from 'fast-glob';
 import { normalizePath } from 'vite';
 import path from 'path';
 import { HTMLHint } from 'htmlhint';
@@ -15,7 +16,7 @@ const DEFAULT_IGNORE_FILENAME = '.htmlhintignore';
 
 HTMLHint.addRule(classValue);
 
-function defaultFormat(results) {
+export function defaultFormat(results) {
   let output = '';
   results.forEach(result => {
     if (!result.warnings.length) return;

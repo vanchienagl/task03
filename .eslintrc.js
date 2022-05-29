@@ -16,6 +16,9 @@ module.exports = {
   },
   env: {
     browser: true,
+    commonjs: true,
+    es6: true,
+    jquery: true,
   },
   ignorePatterns: ["node_module/**/*", "dist/**/*"],
 };

@@ -150,7 +150,7 @@ code {
   <div class="tip">
     Click outside or fix the code to dismiss.<br>
     You can also disable this overlay by setting
-    <code>Lint({ errorOverlay: false })</code> in <code>vite.config.js.</code>
+    <code>Linter({ errorOverlay: false })</code> in <code>vite.config.js.</code>
   </div>
 </div>
 `;
@@ -395,41 +395,47 @@ function createErrorOverlay(data) {
   let body = overlay.shadowRoot.querySelector(".body");
   body.innerHTML = "";
 
-  data.forEach((lint) => {
-    if (lint.results.length) {
-      switch (lint.id) {
+  for (const [key, value] of Object.entries(data)) {
+    if (value.length) {
+      switch (key) {
         case "htmlhint":
-          body.appendChild(new HTMLHint(lint.results));
+          body.appendChild(new HTMLHint(value));
           break;
         case "stylelint":
-          body.appendChild(new Stylelint(lint.results));
+          body.appendChild(new Stylelint(value));
           break;
         case "eslint":
-          body.appendChild(new ESLint(lint.results));
+          body.appendChild(new ESLint(value));
           break;
 
         default:
           break;
       }
     }
-  });
+  }
+
 }
 function clearErrorOverlay() {
   document.querySelectorAll(overlayId).forEach((n) => n.close());
 }
 
 if (import.meta.hot) {
+  let hasError = false;
   import.meta.hot.on("vite:error", () => {
+    hasError = true;
     clearErrorOverlay();
+  });
+  import.meta.hot.on("vite:beforeUpdate", () => {
+    hasError = false;
   });
   import.meta.hot.send("client:ready");
   import.meta.hot.on("lint:results", (data) => {
-    let errored = data.some((lint) =>
-      lint.results.some(
+    let errored = Object.values(data).some((results) =>
+      results.some(
         (result) => result.warnings?.length || result.messages?.length
       )
     );
-    if (errored) {
+    if (errored && !hasError) {
       createErrorOverlay(data);
     } else {
       clearErrorOverlay();
