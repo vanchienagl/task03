@@ -2,6 +2,9 @@
   "name": "agl_vite_template",
   "version": "1.0.0",
   "description": "AGL's template, using vite",
+  "engines": {
+    "node": ">=12.2.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",

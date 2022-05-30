@@ -1,10 +1,35 @@
-import { existsSync, rm } from "fs";
-import { relative } from "path";
+import fs from "fs";
+import path from "path";
 import { html as beautify_html } from "js-beautify";
 var bs = require("browser-sync").create();
 
 function Controller() {
   let config;
+
+  async function rm(directory) {
+    if (!fs.existsSync(directory)) return;
+    fs.readdir(directory, (err, files) => {
+      if (err) throw err;
+      let promises = [];
+      for (const file of files) {
+        promises.push(new Promise((resolve, reject) => {
+          fs.unlink(path.join(directory, file), err => {
+            if (err) reject(err);
+            resolve();
+          });
+        }));
+      }
+      Promise.all(promises).then(() => {
+        fs.rmdir(directory, err => {
+          if (err) throw err;
+          config.logger.info(`${directory} folder removed`);
+        });
+      }).catch(err => {
+        console.log(err)
+      });
+    });
+  }
+
   return {
     name: "controller",
     apply: "build",
@@ -37,7 +62,7 @@ function Controller() {
           ``
         );
         if (base.startsWith('./')) {
-          let relativePath = relative(filename, root).slice(0, -2).replace(/\\/g, '/');
+          let relativePath = path.relative(filename, root).slice(0, -2).replace(/\\/g, '/');
           html = html.replace(/\.\//g, relativePath);
         }
         html = beautify_html(html, {
@@ -50,22 +75,10 @@ function Controller() {
     },
 
     closeBundle() {
-      if (existsSync("dist/_virtual")) {
-        rm("dist/_virtual", { recursive: true }, (err) => {
-          config.logger.info(`Remove _virtual folder`);
-          if (err) {
-            console.log(err);
-          }
-        });
-      }
-      if (existsSync("dist/_scss")) {
-        rm("dist/_scss", { recursive: true }, (err) => {
-          config.logger.info(`Remove scss folder`);
-          if (err) {
-            console.log(err);
-          }
-        });
-      }
+      console.log('');
+      config.logger.info(`Removing folder...`);
+      rm("dist/_virtual");
+      rm("dist/_scss");
       bs.reload();
     },
   };

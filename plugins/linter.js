@@ -119,7 +119,7 @@ function Linter(options = {}) {
       .then((results) => {
         setStorage(this.id, prepareESLintResults(results));
         logStorage(this.inStorage ? undefined : this.id);
-        if (op.options?.fix) {
+        if (op.option && op.options.fix) {
           ESLint.outputFixes(results);
         }
       })
