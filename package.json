@@ -9,7 +9,14 @@
     "dev": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "external": "vite build --emptyOutDir --watch --mode=external"
+    "external": "vite build --emptyOutDir --watch --mode=external",
+    "htmlhint": "htmlhint src/**/*.{html,ejs} --rulesdir plugins/utils/htmlhint/rules/",
+    "stylelint": "stylelint src/**/*.{vue,css,scss,sass,less,styl,svelte} --custom-formatter=node_modules/stylelint-formatter-pretty",
+    "stylelint:fix": "stylelint src/**/*.{vue,css,scss,sass,less,styl,svelte} --custom-formatter=node_modules/stylelint-formatter-pretty --fix",
+    "eslint": "eslint src/_public/assets/js/**/*.js -f eslint-formatter-pretty",
+    "eslint:fix": "eslint src/_public/assets/js/**/*.js -f eslint-formatter-pretty --fix",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint",
+    "lint:fix": "npm run htmlhint && npm run stylelint:fix && npm run eslint:fix"
   },
   "repository": {
     "type": "git",
