@@ -18,12 +18,6 @@
 
 ## Setup
 
-Match local node.js version with project version
-
-```sh
-nvm use
-```
-
 Install pnpm
 
 ```sh

@@ -28,6 +28,7 @@ function Watcher(paths = '', config = {}) {
       };
       watcher.on("add", checkReload);
       watcher.on("change", checkReload);
+      watcher.on("unlink", checkReload);
     }
   };
 }

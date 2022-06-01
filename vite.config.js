@@ -5,6 +5,7 @@ import { Watcher } from "./plugins/watcher";
 import { Layout } from "./plugins/layout";
 import { Controller } from "./plugins/controller";
 import { Imagemin } from "./plugins/imagemin";
+import { Linter } from "./plugins/linter";
 
 let input = {};
 
@@ -37,7 +38,7 @@ module.exports = defineConfig(({ mode }) => {
     publicDir: '_public',
     base,
     server: {
-      open: `${base}index.html`
+      open: true
     },
     build: {
       outDir: "../dist",
@@ -97,6 +98,22 @@ module.exports = defineConfig(({ mode }) => {
             },
           ],
         },
+      }),
+      Linter({
+        errorOverlay: true,
+        htmlhint: {
+          files: ['src/**/*.{html,ejs}'],
+        },
+        stylelint: {
+          files: ['src/**/*.{vue,css,scss,sass,less,styl,svelte}'],
+          fix: true
+        },
+        eslint: {
+          files: ['src/_public/assets/js/**/*.js'],
+          options: {
+            fix: true
+          }
+        }
       }),
     ],
   }
