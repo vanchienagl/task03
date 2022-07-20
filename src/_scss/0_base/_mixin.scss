@@ -15,12 +15,6 @@
 // breakpoint
 //============================================
 @mixin sp {
-    @media only screen and (max-width: 375px) {
-        @content;
-    }
-}
-
-@mixin sp767 {
     @media only screen and (max-width: 767px) {
         @content;
     }

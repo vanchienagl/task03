@@ -483,45 +483,4 @@
             }
         }
     }
-
-    // Smartphone 767
-    @include sp767 {
-        max-width: 375px;
-        margin: 0 auto;
-
-        &__bubblelist {
-            display: none;
-        }
-    
-        &__main {
-            padding-top: 0;
-        }
-    
-        &__mainbanner {
-            &--image {
-                .pc-only {
-                    display: none;
-                }
-    
-                .sp-only {
-                    display: block;
-                    width: 100%;
-                }
-            }
-
-            &--info {
-                left: 7%;
-            }
-        }
-    
-        &__leaf {
-            &--tl {
-                width: 133px;
-            }
-    
-            &--tr {
-                width: 117px;
-            }
-        }
-    }
 }
