@@ -1,67 +1,23 @@
 /* layout
 ------------------------------------------------------------*/
 body {
-    font-family: $main-fonts;
+    font-family: $primary-font;
     font-size: 1.4rem;
-    min-width: $base-width;
+    font-weight: 400;
     line-height: 1.5;
+    background: url("/_public/assets/img/bg-main.jpg") repeat 0 0;
+    padding: 30px;
+    color: $color-primary;
     @include sp {
-        min-width: 320px;
+        padding: 15px;
     }
-}
-//-------------------------------------------------------
-main {
-    // padding: 0px 0 100px;
-}
-
-section {
-    padding: 50px 0 90px;
 }
 
 //-------------------------------------------------------
 .l-container {
-    width: $base-width;
+    max-width: $base-width;
     margin: 0 auto;
+    background-color: #fff;
 }
+
 //-------------------------------------------------------
-.c-mainvisual {
-    margin-top: -63px;
-    padding: 0;
-    height: 700px;
-    background: url("/assets/img/bg-header.jpg") no-repeat center;
-    background-size: cover;
-    color: #fff;
-
-    &__inner {
-        position: relative;
-        top: 50%;
-        transform: translate(0%, -50%);
-        padding-top: 63px;
-        text-align: center;
-    }
-
-    h2 {
-        width: 100%;
-        flex-basis: 100%;
-        font-size: 8rem;
-        font-weight: 400;
-    }
-
-    p {
-        width: 100%;
-        font-size: 2rem;
-    }
-
-    .c-btn1 {
-        margin-top: 50px;
-    }
-
-    //==================
-    &--subpage {
-        height: 300px;
-
-        h2 {
-            font-size: 5rem;
-        }
-    }
-}

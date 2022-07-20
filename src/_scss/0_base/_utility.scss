@@ -1,15 +1,30 @@
-///*------------------------------------------------------------
-//Anchor position
-//------------------------------------------------------------*/
-//.u-anchor:before {
-//	content:"";
-//	margin-top: -100px;
-//	padding-top: 100px;
-//}
+//------------------------------------------------------------
+// Display flex
+//------------------------------------------------------------
+.u-flexc {
+    display: flex;
+    align-items: center;
+}
 
-//------------------------------------------------------------
-// margin
-//------------------------------------------------------------
+.u-flexcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.u-flexwtc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: center;
+}
+
+.u-flexwcc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
 //------------------------------------------------------------
 // color

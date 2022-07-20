@@ -91,6 +91,8 @@ main {
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+
 }
 
 body,
@@ -164,10 +166,15 @@ a {
 
 a:hover,
 a:hover img {
-    opacity: 0.8;
-    filter: alpha(opacity=80);
+    opacity: 0.7;
+    filter: alpha(opacity=70);
 }
 
 img {
     max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    box-sizing: border-box;
 }
