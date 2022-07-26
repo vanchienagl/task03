@@ -1,31 +1,12 @@
-//------------------------------------------------------------
-// Display flex
-//------------------------------------------------------------
-.u-flexc {
-    display: flex;
-    align-items: center;
+.u-sp--only {
+    display: none;
 }
+@include sp {
+    .u-pc--only {
+        display: none;
+    }
 
-.u-flexcc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .u-sp--only {
+        display: block;
+    }
 }
-
-.u-flexwtc {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: top;
-    justify-content: center;
-}
-
-.u-flexwcc {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-//------------------------------------------------------------
-// color
-//------------------------------------------------------------

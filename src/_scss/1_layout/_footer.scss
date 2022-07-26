@@ -2,7 +2,7 @@
 footer
 ------------------------------------------------------------*/
 .c-footer {
-    padding-bottom: 70px;
+    padding-bottom: 60px;
 
     &__main {
         max-width: 1030px;
@@ -30,23 +30,28 @@ footer
 
     &__logo {
         text-align: right;
+        align-self: flex-start;
 
         &--image {
-            position: relative;
-            top: 2px;
+            margin-bottom: 14px;
+            img{
+                position: relative;
+                top: 3px;
+            }
         }
 
         &--text {
             font-size: 1.2rem;
             line-height: 1;
-            margin-top: 12px;
             letter-spacing: 1.4px;
         }
     }
 
+    // Smartphone
     @include sp {
-        margin-bottom: 0;
+        max-width: 345px;
         padding: 0 15px;
+        margin: 0 auto;
         padding-bottom: 50px;
 
         &__main {
@@ -58,6 +63,7 @@ footer
         }
 
         &__logo {
+            align-self: center;
             &--image {
                 width: 100px;
                 margin: 0 auto 16px;
@@ -86,4 +92,28 @@ footer
             }
         }
     }
+
+    // Tablet
+    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+        padding: 0 30px 30px;
+
+        &__info {
+            padding-right: 15px;
+        }
+
+        &__text {
+            font-size: 1.3rem;
+        }
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width:1919px) {
+        padding: 0 30px 30px;
+
+        &__info {
+            padding-right: 15px;
+        }
+        
+    }
+    
 }

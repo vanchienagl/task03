@@ -3,44 +3,17 @@
     <img src="/_public/assets/img/leaf-tl.png" alt="leaf top left">
   </div>
   <div class="c-header__leaf c-header__leaf--tr">
-    <img class="pc-only" src="/_public/assets/img/leaf-tr.png" alt="leaf right bottom">
-    <img class="sp-only" src="/_public/assets/img/leaf-tr-sp.png" alt="leaf right bottom">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/_public/assets/img/leaf-tr-sp.png">
+      <img src="/_public/assets/img/leaf-tr.png" alt="leaf right bottom">
+    </picture>
   </div>
-  <div class="c-header__main">
-    <div class="c-header__mainbanner">
-      <div class="c-header__mainbanner--image">
-        <img class="pc-only" src="/_public/assets/img/main-banner-pc.jpg"
-          alt="健栄製薬のハッカ油, MENTHA OIL, ハッカ油は、毎日の暮らしを豊かにする魔法のしずく">
-        <img class="sp-only" src="/_public/assets/img/main-banner-sp.png"
-          alt="健栄製薬のハッカ油, MENTHA OIL, ハッカ油は、毎日の暮らしを豊かにする魔法のしずく">
-      </div>
-      <div class="c-header__mainbanner--info">
-        <p class="c-header__mainbanner--text c-header__mainbanner--text1">健栄製薬の</p>
-        <p class="c-header__mainbanner--text c-header__mainbanner--textimg">
-          <img src="/_public/assets/img/img-mainbaner-text.png" alt="ハッカ油">
-        </p>
-        <p class="c-header__mainbanner--text c-header__mainbanner--text2">MENTHA OIL</p>
-        <h1 class="c-header__mainbanner--textmain">
-          <span class="c-header__mainbanner--text c-header__mainbanner--text3">ハッカ油は、毎日の暮らしを豊かにする</span>
-          <span class="c-header__mainbanner--text c-header__mainbanner--text4">魔法のしずく</span>
-        </h1>
-        <a href="#" class="c-header__mainbanner--btn">ハッカ？ミント？</a>
-      </div>
-      <div class="c-header__bubblelist pc-only">
-        <img class="c-header__bubbleitem c-header__bubbleitem--1" src="/_public/assets/img/img-bubble1.png" alt="image bubble 1">
-        <img class="c-header__bubbleitem c-header__bubbleitem--2" src="/_public/assets/img/img-bubble2.png" alt="image bubble 2">
-        <img class="c-header__bubbleitem c-header__bubbleitem--3" src="/_public/assets/img/img-bubble3.png" alt="image bubble 3">
-        <img class="c-header__bubbleitem c-header__bubbleitem--4" src="/_public/assets/img/img-bubble4.png" alt="image bubble 4">
-        <img class="c-header__bubbleitem c-header__bubbleitem--5" src="/_public/assets/img/img-bubble5.png" alt="image bubble 5">
-        <img class="c-header__bubbleitem c-header__bubbleitem--6" src="/_public/assets/img/img-bubble6.png" alt="image bubble 6">
-      </div>
-    </div>
-  </div>
-  <div class="sp-only c-header__iconmenu">
+  
+  <div class="c-header__iconmenu">
     <img src="/_public/assets/img/icon-menu.png" alt="icon menu">
   </div>
   <nav class="c-header__menu">
-    <div class="sp-only c-header__iconmenu--close">
+    <div class="c-header__iconmenu--close">
       <img src="/_public/assets/img/icon-menu-close.png" alt="icon menu close">
     </div>
     <ul class="c-header__menu--list">
@@ -60,7 +33,7 @@
         <a href="#p-posts" class="c-header__menu--link c-header__menu--link5">ハッカ油コラム</a>
       </li>
       <li class="c-header__menu--item">
-        <a href="#" class="c-header__menu--link c-header__menu--link6">ハッカ油ムービー</a>
+        <a href="#p-banner" class="c-header__menu--link c-header__menu--link6">ハッカ油ムービー</a>
       </li>
     </ul>
   </nav>

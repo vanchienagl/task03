@@ -1,9 +1,18 @@
-console.log("main.js");
-
 // Detect mobile
 function isMobile(){
-  var isMobile = (/iphone|ipod|android|ie|blackberry|fennec/).test(navigator.userAgent.toLowerCase());
-  return isMobile;
+  //var isMobile = (/iphone|ipod|android|ie|blackberry|fennec/).test(navigator.userAgent.toLowerCase());
+  const toMatch = [
+    /Android/i,
+    /webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    /iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i
+  ];
+  return toMatch.some((toMatchItem) => {
+    return navigator.userAgent.match(toMatchItem);
+  });
 }
 
 // Toogle menu
@@ -23,6 +32,10 @@ window.addEventListener("load", function () {
   }
 });
 
+$('.c-header__menu--link').click(function(){
+  $('.c-header__menu').removeClass('is-show')
+});
+
 
 // List Points
 $('.p-points__image--more').click(function(){
@@ -33,31 +46,35 @@ $('.p-points__image--more').click(function(){
 
 // List Posts
 if(isMobile()){
+  console.log(22222);
+  $('.p-posts__link').hide();
+  $('.p-posts__link--top').show();
+
   $('.p-posts__arrow').click(function(){
     var postItemCurrent = $(this).parents('.p-posts__item');
     var postMediaCurrent = postItemCurrent.find('.p-posts__media');
     var postTextCurrent = postItemCurrent.find('.p-posts__text');
     var postArowCurrent = postItemCurrent.find('.p-posts__arrow');
-
-    //postTextCurrent.slideToggle();
-    postMediaCurrent.toggleClass('is-active');
-    postTextCurrent.toggleClass('is-active');
+    postTextCurrent.slideToggle();
     postArowCurrent.toggleClass('is-active');
+    postMediaCurrent.toggleClass('is-active');
 
-    postItemCurrent.siblings('.p-posts__item').find('.p-posts__media').removeClass('is-active');
-    postItemCurrent.siblings('.p-posts__item').find('.p-posts__text').removeClass('is-active');
-    postItemCurrent.siblings('.p-posts__item').find('.p-posts__arrow').removeClass('is-active');
+    if(postArowCurrent.hasClass('is-active')){
+      postItemCurrent.find('.p-posts__link').show();
+    }else{
+      postItemCurrent.find('.p-posts__link').hide();
+    }
   });
 }
 
 //Animation when scroll mouse
 $(window).scroll(function() {
   if ($(this).scrollTop() > 5) {
-    $('.c-header__bubblelist').addClass('is-active');
+    $('.p-mvisual__bubblelist').addClass('is-active');
     $('.c-header__leaf--tl').addClass('is-active');
     $('.c-header__leaf--tr').addClass('is-active');
   } else {
-    $('.c-header__bubblelist').removeClass('is-active');
+    $('.p-mvisual__bubblelist').removeClass('is-active');
     $('.c-header__leaf--tl').removeClass('is-active');
     $('.c-header__leaf--tr').removeClass('is-active');
   }

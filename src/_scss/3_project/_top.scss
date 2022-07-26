@@ -1,6 +1,355 @@
 /*------------------------------------------------------------
 Css of home page
 ------------------------------------------------------------*/
+// Section Main Visual
+.p-mvisual {
+    &__main {
+        max-width: 1120px;
+        margin: 0 auto 80px;
+        padding: 100px 0 0;
+    }
+
+    &__mainbanner {
+        position: relative;
+
+        &--image {
+            z-index: 1;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &--info {
+            z-index: 1;
+            max-width: 314px;
+            position: absolute;
+            top: 101px;
+            left: 172px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        &--text {
+            line-height: 1;
+
+            &1 {
+                display: block;
+                text-align: center;
+                font-weight: 500;
+                font-size: 2.6rem;
+                margin-bottom: 7px;
+                position: relative;
+                left: 2px;
+                letter-spacing: 2.5px;
+            }
+
+            &img {
+                display: block;
+                position: relative;
+                padding-bottom: 15px;
+                margin-bottom: 22px;
+
+                &::after {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 0;
+                    display: inline-block;
+                    content: "";
+                    width: 60px;
+                    height: 2px;
+                    background: $color-primary;
+                }
+            }
+
+            &2 {
+                font-size: 1.6rem;
+                margin-bottom: 35px;
+                letter-spacing: 1.5px;
+                position: relative;
+                left: 2px;
+            }
+
+            &3 {
+                font-size: 1.6rem;
+                margin-bottom: 13px;
+                position: relative;
+                left: 2px;
+                letter-spacing: 1.6px;
+                width: 320px;
+                text-align: center;
+            }
+
+            &4 {
+                font-size: 3rem;
+                position: relative;
+                left: 2px;
+                letter-spacing: 3px;
+                margin-bottom: 28px;
+            }
+        }
+
+        &--btn {
+            line-height: 1;
+            font-size: 2.4rem;
+            width: 306px;
+            height: 55px;
+            background-color: #25a989;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 27px;
+            position: relative;
+            left: 4px;
+            letter-spacing: 5px;
+            padding-left: 4px;
+        }
+    }
+
+    &__bubblelist {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 2s ease-out;
+    }
+
+    &__bubblelist.is-active {
+        top: -150%;
+    }
+
+    &__bubbleitem {
+        position: absolute;
+
+        &--1 {
+            top: -27px;
+            left: 162px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        &--2 {
+            top: -52px;
+            left: 714px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        &--3 {
+            top: -4px;
+            right: -126px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        &--4 {
+            left: -72px;
+            bottom: 47px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        &--5 {
+            left: 177px;
+            bottom: -30px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        &--6 {
+            right: 45px;
+            bottom: -47px;
+            animation: bubble 4s ease-in-out infinite;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(0, 10px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+    // Smartphone
+    @include sp {
+        max-width: 345px;
+        padding: 0 15px;
+        margin: 0 auto 40px;
+
+        &__main {
+            padding-top: 0;
+            margin-bottom: 40px;
+        }
+
+        &__mainbanner {
+            &--image {
+                img {
+                    border-radius: 0 0 25px 25px;
+                }
+            }
+
+            &--info {
+                max-width: none;
+                width: 100%;
+                top: 0;
+                left: 0;
+                justify-content: flex-start;
+                margin-top: 118px;
+            }
+
+            &--text {
+                &img {
+                    padding-bottom: 20px;
+                    margin-bottom: 18px;
+
+                    &::after {
+                        width: 42px;
+                        height: 1px;
+                    }
+
+                    img {
+                        width: 145px;
+                    }
+                }
+
+                &1 {
+                    font-size: 2rem;
+                    margin-bottom: 12px;
+                    letter-spacing: 2.1px;
+                }
+
+                &2 {
+                    font-size: 1.5rem;
+                    margin-bottom: 27px;
+                    letter-spacing: 1.3px;
+                    left: 1px;
+                }
+
+                &3 {
+                    font-size: 1.5rem;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    left: 0;
+                    letter-spacing: 0;
+                }
+
+                &4 {
+                    font-size: 2rem;
+                    left: 0;
+                    letter-spacing: 0;
+                    margin-bottom: 29px;
+                }
+            }
+
+            &--btn {
+                width: 200px;
+                height: 35px;
+                font-size: 1.6rem;
+                letter-spacing: 3.1px;
+                left: 0;
+                padding-left: 3px;
+            }
+        }
+    }
+
+    // Tablet
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
+        &__main {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        &__bubblelist {
+            display: none;
+        }
+
+        &__mainbanner {
+            &--info {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            &--textimg {
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+
+            &--text1 {
+                margin-bottom: 3px;
+                font-size: 2.2rem;
+            }
+
+            &--textimg {
+                text-align: center;
+
+                img {
+                    width: 75%;
+                }
+            }
+
+            &--text2 {
+                margin-bottom: 15px;
+                font-size: 1.4rem;
+            }
+
+            &--text3 {
+                font-size: 1.4rem;
+            }
+
+            &--text4 {
+                margin-bottom: 15px;
+                font-size: 2.7rem;
+            }
+        }
+        
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+        padding: 0 30px;
+        &__mainbanner{
+            &--info{
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+        &__bubbleitem {
+            &--1 {
+                left: 20%;
+            }
+
+            &--2 {
+                left: 50%;
+            }
+
+            &--3 {
+                left: 90%;
+            }
+            &--4 {
+                left: 0%;
+            }
+
+            &--5 {
+                left: 30%;
+            }
+
+            &--6 {
+                left: 75%;
+            }
+        }
+    }
+}
+
 // Section product
 .p-products {
     max-width: 1015px;
@@ -8,7 +357,7 @@ Css of home page
 
     &__heading {
         font-size: 4.6rem;
-        font-weight: 500;
+        font-weight: 700;
         letter-spacing: 9px;
         text-align: center;
         line-height: 1;
@@ -16,7 +365,7 @@ Css of home page
         &--small {
             display: block;
             font-size: 2rem;
-            font-weight: 500;
+            font-weight: 400;
             margin-bottom: 8px;
             letter-spacing: 2px;
             position: relative;
@@ -151,7 +500,6 @@ Css of home page
             text-align: right;
             position: relative;
             padding: 0 0 7px;
-            font-weight: 600;
             letter-spacing: 1px;
 
             &::after {
@@ -253,8 +601,9 @@ Css of home page
 
     // Smartphone
     @include sp {
+        max-width: 345px;
         padding: 0 15px;
-        margin-bottom: 61px;
+        margin: 0 auto 61px;
 
         &__list {
             flex-direction: column;
@@ -262,7 +611,6 @@ Css of home page
 
         &__heading {
             font-size: 2rem;
-            font-weight: 600;
             margin-bottom: 73px;
             letter-spacing: 4px;
 
@@ -472,6 +820,78 @@ Css of home page
             }
         }
     }
+
+    // Tablet
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
+        padding: 0 60px;
+        margin-bottom: 30px;
+
+        &__heading {
+            margin-bottom: 55px;
+        }
+
+        &__list {
+            position: static;
+        }
+
+        &__item {
+            width: calc(100%/2 - 50px);
+            margin: 0 0 50px 50px;
+
+            &--2,
+            &--4 {
+                margin-bottom: 100px;
+            }
+        }
+        &__name--3{
+            width: 190px;
+        }
+        &__name--7,
+        &__name--8 {
+            left: 100%;
+            margin-left: 0;
+        }
+        &__name--8{
+            width: 110px;
+        }
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+        padding: 0 60px;
+        margin-bottom: 30px;
+
+        &__heading {
+            margin-bottom: 55px;
+        }
+
+        &__list {
+            position: static;
+        }
+
+        &__item {
+            width: calc(100%/2 - 50px);
+            margin: 0 0 50px 50px;
+
+            &--2,
+            &--4 {
+                margin-bottom: 100px;
+            }
+        }
+        &__name--3{
+            width: 190px;
+        }
+        &__name--7,
+        &__name--8 {
+            left: 100%;
+            margin-left: 0;
+        }
+        &__name--8{
+            width: 110px;
+        }
+    }
+    
+    
 }
 
 // Section Points
@@ -570,7 +990,7 @@ Css of home page
         &--heading {
             font-size: 3.6rem;
             color: $color-176b6a;
-            font-weight: 500;
+            font-weight: 400;
             letter-spacing: 3.5px;
             line-height: 1;
             margin-bottom: 27px;
@@ -627,7 +1047,7 @@ Css of home page
             bottom: 0;
             margin: 20px;
             padding: 50px 40px;
-            border-radius: 23px;
+            border-radius: 24px;
             text-align: center;
 
             &--7 {
@@ -642,6 +1062,7 @@ Css of home page
                 padding-bottom: 19px;
                 margin-bottom: 12px;
                 letter-spacing: 2.4px;
+                font-weight: 400;
 
                 &::before {
                     content: "";
@@ -684,6 +1105,10 @@ Css of home page
     }
 
     &__image {
+        img {
+            border-radius: 30px;
+        }
+
         &--more {
             position: absolute;
             right: 20px;
@@ -716,6 +1141,10 @@ Css of home page
         &--item {
             margin-left: 20px;
             width: calc(100%/4 - 20px);
+
+            img {
+                border-radius: 20px;
+            }
         }
 
         &--desc {
@@ -728,7 +1157,9 @@ Css of home page
 
     // Smart phone
     @include sp {
+        max-width: 345px;
         padding: 0 15px;
+        margin: 0 auto;
 
         &__main {
             padding: 38px 0 17px;
@@ -862,13 +1293,10 @@ Css of home page
             width: 100%;
             margin: 0 0 15px;
 
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-
             &content {
                 margin: 15px;
                 padding: 55px 20px;
+                border-radius: 13px;
 
                 &--title {
                     font-size: 1.6rem;
@@ -898,6 +1326,7 @@ Css of home page
         &__image {
             img {
                 width: 100%;
+                border-radius: 15px;
             }
 
             &--more {
@@ -931,6 +1360,10 @@ Css of home page
                 margin-left: 25px;
                 margin-bottom: 25px;
                 width: calc(100%/2 - 25px);
+
+                img {
+                    border-radius: 10px;
+                }
             }
 
             &--desc {
@@ -944,6 +1377,59 @@ Css of home page
             }
         }
     }
+
+    // Tablet
+    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+        padding: 0 50px;
+
+        &__header{
+            margin-left: 0;
+        }
+        &__content {
+            flex-wrap: wrap;
+            margin-left: 0;
+        }
+
+        &__item {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto 50px;
+            &content{
+                padding-top: 150px;
+            }
+        }
+
+        &__image {
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+        padding: 0 30px;
+
+        &__content {
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            width: calc(100%/3 - 20px);
+            margin-bottom: 20px;
+            &content{
+                padding: 25px;
+            }
+        }
+
+        &__image {
+            img {
+                width: 100%;
+            }
+        }
+    }
+    
+    
 }
 
 // Section Q&A
@@ -1002,7 +1488,9 @@ Css of home page
 
     // Smartphone
     @include sp {
+        max-width: 345px;
         padding: 0 15px;
+        margin: 0 auto;
 
         &__main {
             padding: 38px 0 0;
@@ -1016,12 +1504,17 @@ Css of home page
 
         &__item {
             margin-bottom: 34px;
+            &:last-of-type {
+                margin-bottom: 34px;
+            }
         }
-
+        
         &__question {
             padding-left: 51px;
             margin-bottom: 6px;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+            position: relative;
+            left: -1px;
 
             &--2 {
                 margin-bottom: 18px;
@@ -1039,14 +1532,20 @@ Css of home page
             line-height: calc(22 /13);
             letter-spacing: 1.2px;
             position: relative;
-            left: 2px;
+            left: 1px;
         }
     }
+
+    // Tablet
+    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+        padding: 0 60px;
+    }
+    
 }
 
 // Section Posts
 .p-posts {
-    margin-bottom: 118px;
+    margin-bottom: 99px;
 
     &__main {
         max-width: 1030px;
@@ -1056,8 +1555,8 @@ Css of home page
     &__banner {
         margin-bottom: 51px;
 
-        &--last {
-            margin-bottom: 0;
+        img {
+            border-radius: 50px;
         }
     }
 
@@ -1070,6 +1569,7 @@ Css of home page
         border-bottom: 1px solid $color-176b6a;
         padding-bottom: 32px;
         margin-bottom: 35px;
+        cursor: pointer;
 
         &:last-of-type {
             margin-bottom: 0;
@@ -1078,12 +1578,20 @@ Css of home page
         &:hover {
             opacity: 0.7;
         }
+        &--2{
+            padding-bottom: 30px;
+        }
     }
 
     &__info {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+    }
+
+    &__content {
+        flex: 1;
     }
 
     &__media {
@@ -1095,6 +1603,10 @@ Css of home page
     &__image {
         width: 275px;
         margin-right: 14px;
+
+        img {
+            border-radius: 10px;
+        }
     }
 
     &__title {
@@ -1117,11 +1629,12 @@ Css of home page
 
     &__desc {
         font-size: 1.4rem;
-        font-weight: 500;
+        font-weight: 400;
         color: $color-secondary;
         line-height: calc(21 /14);
         letter-spacing: 1.7px;
         margin-left: -1px;
+        padding-right: 30px;
     }
 
     &__link {
@@ -1137,37 +1650,30 @@ Css of home page
     &__arrow {
         display: flex;
         align-items: center;
-
-        &::after {
-            width: 15px;
-            height: 35px;
-            content: "";
-            display: inline-block;
-            background: url("/_public/assets/img/img-arrow1.png") no-repeat;
-            position: relative;
-            top: 17px;
-            left: 1px;
-        }
-
-        &--2 {
-            &::after {
-                top: 27px;
-            }
+        width: 15px;
+        height: 35px;
+        position: absolute;
+        left: 100%;
+        transform: translateX(-100%);
+        margin-top: 30px;
+        &--2{
+            margin-top: 50px;
         }
     }
 
     // Smartphone
     @include sp {
+        max-width: 345px;
         padding: 0 15px;
-        margin-bottom: 57px;
+        margin: 0 auto 57px;
 
         &__banner {
             margin: 0 33px 76px;
             position: relative;
             left: 1px;
 
-            &--last {
-                margin-bottom: 0;
+            img {
+                border-radius: 25px;
             }
         }
 
@@ -1180,6 +1686,9 @@ Css of home page
             margin-bottom: 40px;
             padding-bottom: 0;
             border: 0;
+            &--10{
+                margin-bottom: 39px;
+            }
 
             &:hover {
                 opacity: 1;
@@ -1188,23 +1697,19 @@ Css of home page
 
         &__info {
             flex-direction: column;
+            position: static;
         }
 
         &__content {
-            margin-bottom: 21px;
-
-            &--10 {
-                margin-bottom: 13px;
-            }
-
-            &--9 {
-                margin-bottom: 13px;
-            }
+            padding-right: 0;
+            position: relative;
+           
         }
 
         &__media {
             align-items: flex-start;
             margin-bottom: 0;
+            transition: margin 0.3s linear;
 
             &.is-active {
                 margin-bottom: 8px;
@@ -1255,6 +1760,7 @@ Css of home page
             margin-left: 0;
             position: relative;
             left: 1px;
+            padding-right: 0;
         }
 
         &__link {
@@ -1267,21 +1773,101 @@ Css of home page
             justify-content: center;
             height: 20px;
             border-radius: 10px;
+            position: static;
+            left: auto;
+            transform: none;
+            margin-top: 15px;
+            
+            &--11{
+                margin-top: 20px;
+            }
 
-            &::after {
+            &--9{
+                margin-top: 13px;
+            }
+
+            img {
                 width: 35px;
                 height: 15px;
-                background: url("/_public/assets/img/img-arrow2-down.png") no-repeat;
-                background-size: contain;
-                position: static;
+            }
+
+            img:nth-child(1) {
+                display: none;
+            }
+
+            img:nth-child(2) {
+                display: block;
             }
 
             &.is-active {
-                &::after {
-                    background: url("/_public/assets/img/img-arrow2.png") no-repeat;
-                    background-size: contain;
+                img:nth-child(1) {
+                    display: block;
+                }
+
+                img:nth-child(2) {
+                    display: none;
                 }
             }
         }
     }
+
+    // Tablet
+    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+        padding: 0 30px;
+
+        &__list {
+            padding: 0;
+        }
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+        padding: 0 30px;
+
+        &__list {
+            padding: 0;
+        }
+    }
+    
+}
+
+// Section Banner
+.p-banner {
+    margin-bottom: 118px;
+
+    &__main {
+        max-width: 1030px;
+        margin: 0 auto;
+
+        img {
+            border-radius: 50px;
+        }
+    }
+
+    @include sp {
+        max-width: 345px;
+        padding: 0 15px;
+        margin: 0 auto 57px;
+
+        &__main {
+            margin: 0 33px;
+            position: relative;
+            left: 1px;
+
+            img {
+                border-radius: 25px;
+            }
+        }
+    }
+
+    // Tablet
+    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+        padding: 0 30px;
+    }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+        padding: 0 30px;
+    }
+    
 }

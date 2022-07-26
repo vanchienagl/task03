@@ -6,6 +6,38 @@
 
 <!-- @content -->
 <main class="p-top">
+  <section id="p-mvisual" class="p-mvisual">
+    <div class="p-mvisual__main">
+      <div class="p-mvisual__mainbanner">
+        <div class="p-mvisual__mainbanner--image">
+            <picture>
+              <source media="(max-width: 767px)" srcset="/_public/assets/img/main-banner-sp.jpg">
+              <img src="/_public/assets/img/main-banner-pc.jpg" alt="健栄製薬のハッカ油, MENTHA OIL, ハッカ油は、毎日の暮らしを豊かにする魔法のしずく">
+            </picture>
+        </div>
+        <div class="p-mvisual__mainbanner--info">
+          <h1 class="p-mvisual__mainbanner--textwrap">
+            <span class="p-mvisual__mainbanner--text p-mvisual__mainbanner--text1">健栄製薬の</span>
+            <span class="p-mvisual__mainbanner--text p-mvisual__mainbanner--textimg">
+              <img src="/_public/assets/img/img-mainbaner-text.png" alt="ハッカ油">
+            </span>
+          </h1>
+          <p class="p-mvisual__mainbanner--text p-mvisual__mainbanner--text2">MENTHA OIL</p>
+          <p class="p-mvisual__mainbanner--text p-mvisual__mainbanner--text3">ハッカ油は、毎日の暮らしを豊かにする</p>
+          <p class="p-mvisual__mainbanner--text p-mvisual__mainbanner--text4">魔法のしずく</p>
+          <a href="#" class="p-mvisual__mainbanner--btn">ハッカ？ミント？</a>
+        </div>
+        <div class="p-mvisual__bubblelist u-pc--only">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--1" src="/_public/assets/img/img-bubble1.png" alt="image bubble 1">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--2" src="/_public/assets/img/img-bubble2.png" alt="image bubble 2">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--3" src="/_public/assets/img/img-bubble3.png" alt="image bubble 3">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--4" src="/_public/assets/img/img-bubble4.png" alt="image bubble 4">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--5" src="/_public/assets/img/img-bubble5.png" alt="image bubble 5">
+          <img class="p-mvisual__bubbleitem p-mvisual__bubbleitem--6" src="/_public/assets/img/img-bubble6.png" alt="image bubble 6">
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="p-products" class="p-products">
     <h2 class="p-products__heading">
       <span class="p-products__heading--small">使い方いろいろ</span>
@@ -14,8 +46,10 @@
     <div class="p-products__list">
       <a href="#" class="p-products__item p-products__item--1">
         <div class="p-products__image--title p-products__image--title1">
-          <img class="pc-only" src="/_public/assets/img/imgtext-dailyuse.png" alt="Daily use">
-          <img class="sp-only" src="/_public/assets/img/imgtext-dailyuse-sp.png" alt="Daily use">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/_public/assets/img/imgtext-dailyuse-sp.png">
+            <img src="/_public/assets/img/imgtext-dailyuse.png" alt="Daily use">
+          </picture>
         </div>
         <div class="p-products__image p-products__image--1">
           <img src="/_public/assets/img/img-p1.png" alt="ハッカ水">
@@ -30,15 +64,19 @@
       </a>
       <a href="#" class="p-products__item p-products__item--3">
         <div class="p-products__image p-products__image--3">
-          <img class="pc-only" src="/_public/assets/img/img-p3.png" alt="ハッカのリネンウォーター">
-          <img class="sp-only" src="/_public/assets/img/img-p3-sp.png" alt="ハッカのリネンウォーター">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/_public/assets/img/img-p3-sp.png">
+            <img src="/_public/assets/img/img-p3.png" alt="ハッカのリネンウォーター">
+          </picture>
           <p class="p-products__name p-products__name--3"><span>ハッカのリネンウォーター</span></p>
         </div>
       </a>
       <a href="#" class="p-products__item p-products__item--4">
         <div class="p-products__image--title p-products__image--title2">
-          <img class="pc-only" src="/_public/assets/img/imgtext-dailyuse.png" alt="Daily use">
-          <img class="sp-only" src="/_public/assets/img/imgtext-dailyuse-sp.png" alt="Daily use">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/_public/assets/img/imgtext-dailyuse-sp.png">
+            <img src="/_public/assets/img/imgtext-dailyuse.png" alt="Daily use">
+          </picture>
         </div>
         <div class="p-products__image p-products__image--4">
           <img src="/_public/assets/img/img-p4.png" alt="ハッカのエアフレッシュナー">
@@ -53,8 +91,10 @@
       </a>
       <a href="#" class="p-products__item p-products__item--6">
         <div class="p-products__image--title p-products__image--title3">
-          <img class="pc-only" src="/_public/assets/img/imgtext-recommended.png" alt="Recommended">
-          <img class="sp-only" src="/_public/assets/img/imgtext-recommended-sp.png" alt="Recommended">
+          <picture>
+            <source media="(max-width: 767px)" srcset="/_public/assets/img/imgtext-recommended-sp.png">
+            <img src="/_public/assets/img/imgtext-recommended.png" alt="Recommended">
+          </picture>
         </div>
         <div class="p-products__image p-products__image--6">
           <img src="/_public/assets/img/img-p6.png" alt="ハッカマスク">
@@ -88,16 +128,15 @@
             </div>
             <div class="p-points__header--right">
               <h2 class="p-points__header--heading p-points__header--heading1">気持ちリフレッシュ</h2>
-              <p class="p-points__header--desc p-points__header--desc1 pc-only">鼻や口から入った香りの信号は、視床下部などに直接作用し気分をリフレッシュさせてくれます。</p>
+              <p class="p-points__header--desc p-points__header--desc1 u-pc--only">鼻や口から入った香りの信号は、視床下部などに直接作用し気分をリフレッシュさせてくれます。</p>
             </div>
           </div>
-          <p class="p-points__header--desc p-points__header--desc1 sp-only">鼻や口から入った香りの信号は、視床下部などに直接作用し気分をリフレッシュさせてくれます。</p>
+          <p class="p-points__header--desc p-points__header--desc1 u-sp--only">鼻や口から入った香りの信号は、視床下部などに直接作用し気分をリフレッシュさせてくれます。</p>
         </div>
         <div class="p-points__content">
           <div class="p-points__item">
             <div class="p-points__image">
-              <img class="pc-only" src="/_public/assets/img/img-po1.png" alt="部屋干しも安心">
-              <img class="sp-only" src="/_public/assets/img/img-po1-sp.png" alt="部屋干しも安心">
+              <img src="/_public/assets/img/img-po1.png" alt="部屋干しも安心">
             </div>
             <img class="p-points__image--more" src="/_public/assets/img/img-more.png" alt="more">
             <div class="p-points__itemcontent p-points__itemcontent--1">
@@ -106,7 +145,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link1" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po2.png" alt="気分転換に">
             </div>
@@ -117,7 +156,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link2" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po3.png" alt="外出のお供に">
             </div>
@@ -141,16 +180,15 @@
             </div>
             <div class="p-points__header--right">
               <h2 class="p-points__header--heading p-points__header--heading2">気持ちリフレッシュ</h2>
-              <p class="p-points__header--desc p-points__header--desc2 pc-only">メントールの刺激ですっきりクールダウン。ミントの香りで気分も爽快！</p>
+              <p class="p-points__header--desc p-points__header--desc2 u-pc--only">メントールの刺激ですっきりクールダウン。ミントの香りで気分も爽快！</p>
             </div>
           </div>
-          <p class="p-points__header--desc p-points__header--desc2 sp-only">メントールの刺激ですっきりクールダウン。ミントの香りで気分も爽快！</p>
+          <p class="p-points__header--desc p-points__header--desc2 u-sp--only">メントールの刺激ですっきりクールダウン。<br>ミントの香りで気分も爽快！</p>
         </div>
         <div class="p-points__content">
           <div class="p-points__item">
             <div class="p-points__image">
-              <img class="pc-only" src="/_public/assets/img/img-po4.png" alt="スッと冷却">
-              <img class="sp-only" src="/_public/assets/img/img-po4-sp.png" alt="スッと冷却">
+              <img src="/_public/assets/img/img-po4.png" alt="スッと冷却">
             </div>
             <img class="p-points__image--more" src="/_public/assets/img/img-more.png" alt="more">
             <div class="p-points__itemcontent p-points__itemcontent--4">
@@ -159,7 +197,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link4" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po5.png" alt="花粉の季節に">
             </div>
@@ -170,7 +208,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link5" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po6.png" alt="足湯に">
             </div>
@@ -194,16 +232,15 @@
             </div>
             <div class="p-points__header--right">
               <h2 class="p-points__header--heading p-points__header--heading3">ハウスキーピング</h2>
-              <p class="p-points__header--desc p-points__header--desc3 pc-only">ハッカ油に含まれるメントールは、お部屋のスッキリを演出。お家の害虫対策にもおすすめです。</p>
+              <p class="p-points__header--desc p-points__header--desc3 u-pc--only">ハッカ油に含まれるメントールは、お部屋のスッキリを演出。お家の害虫対策にもおすすめです。</p>
             </div>
           </div>
-          <p class="p-points__header--desc p-points__header--desc3 sp-only">ハッカ油に含まれるメントールは、お部屋のスッキリを演出。お家の害虫対策にもおすすめです。</p>
+          <p class="p-points__header--desc p-points__header--desc3 u-sp--only">ハッカ油に含まれるメントールは、お部屋のスッキリを演出。お家の害虫対策にもおすすめです。</p>
         </div>
         <div class="p-points__content">
           <div class="p-points__item">
             <div class="p-points__image">
-              <img class="pc-only" src="/_public/assets/img/img-po7.png" alt="嫌な害虫を撃退">
-              <img class="sp-only" src="/_public/assets/img/img-po7-sp.png" alt="嫌な害虫を撃退">
+              <img src="/_public/assets/img/img-po7.png" alt="嫌な害虫を撃退">
             </div>
             <img class="p-points__image--more" src="/_public/assets/img/img-more.png" alt="more">
             <div class="p-points__itemcontent p-points__itemcontent--7">
@@ -212,7 +249,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link7" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po8.png" alt="窓ガラスに">
             </div>
@@ -223,7 +260,7 @@
               <a class="p-points__itemcontent--link p-points__itemcontent--link8" href="#">ハッカ油コラムへ</a>
             </div>
           </div>
-          <div class="p-points__item pc-only">
+          <div class="p-points__item">
             <div class="p-points__image">
               <img src="/_public/assets/img/img-po9.png" alt="シューピローに">
             </div>
@@ -238,7 +275,7 @@
       </div>
     </div>
     <div class="p-points__logos">
-      <h2 class="p-points__logos--title">お買い求めは全国のドラッグストア<br class="sp-only">、またはこちらから</h2>
+      <h2 class="p-points__logos--title">お買い求めは全国のドラッグストア<br class="u-sp--only">、またはこちらから</h2>
       <ul class="p-points__logos--list">
         <li class="p-points__logos--item">
           <a href="https://www.amazon.co.jp/" target="_blank" class="p-points__logos--link">
@@ -261,272 +298,395 @@
           </a>
         </li>
       </ul>
-      <p class="p-points__logos--desc">Amazon、Amazon.co.jp、及びAmazon.co.<span class="sp-only p-points__logos--character">-</span>jpロゴはAmazon.com, Inc.又はその関連会社の商標です。</p>
+      <p class="p-points__logos--desc">Amazon、Amazon.co.jp、及びAmazon.co.-<br class="u-sp--only">jpロゴはAmazon.com, Inc.又はその関連会社の商標です。</p>
     </div>
   </section>
   <section id="p-qa" class="p-qa">
     <div class="p-qa__main">
       <h2 class="p-qa__heading">Q&A</h2>
       <div class="p-qa__content">
-        <dl class="p-qa__list">
+        <div class="p-qa__list">
           <div class="p-qa__item p-qa__item--1">
-            <dt class="p-qa__question p-qa__question--1">虫除け対策に直接体や環境に噴きかけても良いですか？</dt>
-            <dd class="p-qa__answer p-qa__answer--1">刺激が強過ぎる可能性がありますので、薄めて使用してください。また素材によっては変質(変色)するおそれがありますので注意してください。</dd>
+            <p class="p-qa__question p-qa__question--1">虫除け対策に直接体や環境に噴きかけても良いですか？</p>
+            <p class="p-qa__answer p-qa__answer--1">刺激が強過ぎる可能性がありますので、薄めて使用してください。また素材によっては変質(変色)するおそれがありますので注意してください。</p>
           </div>
           <div class="p-qa__item p-qa__item--2">
-            <dt class="p-qa__question p-qa__question--2">体に使用する際の注意点は？</dt>
-            <dd class="p-qa__answer p-qa__answer--2">刺激作用があるため、目や目の周囲、粘膜等に付着しないように注意してください。</dd>
+            <p class="p-qa__question p-qa__question--2">体に使用する際の注意点は？</p>
+            <p class="p-qa__answer p-qa__answer--2">刺激作用があるため、目や目の周囲、粘膜等に付着しないように注意してください。</p>
           </div>
-          <div class="p-qa__item p-qa__item--3 pc-only">
-            <dt class="p-qa__question p-qa__question--3">ハッカ油アイテムを作る際に使用する量は紹介されている量を守らないといけませんか？</dt>
-            <dd class="p-qa__answer p-qa__answer--3">紹介している量はあくまでも目安になります。ただし、これ以上の量を加えると刺激が強過ぎる可能性があるので注意してください。</dd>
+          <div class="p-qa__item p-qa__item--3">
+            <p class="p-qa__question p-qa__question--3">ハッカ油アイテムを作る際に使用する量は紹介されている量を守らないといけませんか？</p>
+            <p class="p-qa__answer p-qa__answer--3">紹介している量はあくまでも目安になります。ただし、これ以上の量を加えると刺激が強過ぎる可能性があるので注意してください。</p>
           </div>
-          <div class="p-qa__item p-qa__item--4 pc-only">
-            <dt class="p-qa__question p-qa__question--4">使用期限はどのくらいですか？</dt>
-            <dd class="p-qa__answer p-qa__answer--4">パッケージ裏面に賞味期限を記載しています。遮光して、涼しい所に保管してください。</dd>
+          <div class="p-qa__item p-qa__item--4">
+            <p class="p-qa__question p-qa__question--4">使用期限はどのくらいですか？</p>
+            <p class="p-qa__answer p-qa__answer--4">パッケージ裏面に賞味期限を記載しています。遮光して、涼しい所に保管してください。</p>
           </div>
-          <div class="p-qa__item p-qa__item--5 pc-only">
-            <dt class="p-qa__question p-qa__question--5">ハッカ油は何からできたものですか？</dt>
-            <dd class="p-qa__answer p-qa__answer--5">ハッカ油とはハッカソウというミントを乾燥させて抽出した植物油のことです。</dd>
+          <div class="p-qa__item p-qa__item--5">
+            <p class="p-qa__question p-qa__question--5">ハッカ油は何からできたものですか？</p>
+            <p class="p-qa__answer p-qa__answer--5">ハッカ油とはハッカソウというミントを乾燥させて抽出した植物油のことです。</p>
           </div>
-        </dl>
+        </div>
       </div>
     </div>
   </section>
   <section id="p-posts" class="p-posts">
     <div class="p-posts__main">
-      <div class="p-posts__banner p-posts__banner--first">
-        <img class="pc-only" src="/_public/assets/img/sub-banner1.png" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
-        <img class="sp-only" src="/_public/assets/img/sub-banner1-sp.png" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
+      <div class="p-posts__banner">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/_public/assets/img/sub-banner1-sp.jpg">
+          <img src="/_public/assets/img/sub-banner1.jpg" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
+        </picture>
       </div>
       <div class="p-posts__list">
         <div class="p-posts__item p-posts__item--11">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--11">
-              <div class="p-posts__media is-active">
-                <div class="p-posts__image">
-                  <img class="pc-only" src="/_public/assets/img/img-pos11.png" alt="風邪やインフルエンザシーズンにもハッカ油">
-                  <img class="sp-only" src="/_public/assets/img/img-pos11-sp.png" alt="風邪やインフルエンザシーズンにもハッカ油">
+              <a href="#">
+                <div class="p-posts__media p-posts__media--top is-active">
+                  <div class="p-posts__image">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/_public/assets/img/img-pos11-sp.png">
+                      <img src="/_public/assets/img/img-pos11.png" alt="風邪やインフルエンザシーズンにもハッカ油">
+                    </picture>
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small11">風邪をひきやすい冬も安心</p>
+                    <p class="p-posts__title--big">風邪やインフルエンザシーズンにもハッカ油</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small11">風邪をひきやすい冬も安心</p>
-                  <p class="p-posts__title--big">風邪やインフルエンザシーズンにもハッカ油</p>
+                <div class="p-posts__text is-active">
+                  <p class="p-posts__desc">風邪をひきやすくなる冬、朝起きたら喉がガラガラなんていうことはありませんか？　実はこれ、夜寝ている間にウイルスが体内で増殖してしまった証拠かもしれません。寒さと乾燥の厳しい冬の風邪は、夜寝ている間に悪化しやすいといわれています。そんな季節に役立つハッカ油の使い方をご紹介します。</p>
                 </div>
-              </div>
-              <div class="p-posts__text is-active">
-                <p class="p-posts__desc">風邪をひきやすくなる冬、朝起きたら喉がガラガラなんていうことはありませんか？　実はこれ、夜寝ている間にウイルスが体内で増殖してしまった証拠かもしれません。寒さと乾燥の厳しい冬の風邪は、夜寝ている間に悪化しやすいといわれています。そんな季節に役立つハッカ油の使い方をご紹介します。</p>
-                <a href="#" class="p-posts__link sp-only">詳しく見る</a>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link p-posts__link--top u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow is-active"></div>
+            <div class="p-posts__arrow p-posts__arrow--11 is-active">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
         <div class="p-posts__item p-posts__item--10">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--10">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img class="pc-only" src="/_public/assets/img/img-pos10.png" alt="ハッカ油を安全に使うためのルール">
-                  <img class="sp-only" src="/_public/assets/img/img-pos10-sp.png" alt="ハッカ油を安全に使うためのルール">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/_public/assets/img/img-pos10-sp.png">
+                      <img src="/_public/assets/img/img-pos10.png" alt="ハッカ油を安全に使うためのルール">
+                    </picture>
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small10">万能だからこそ知っておこう</p>
+                    <p class="p-posts__title--big">ハッカ油を安全に使うためのルール</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small10">万能だからこそ知っておこう</p>
-                  <p class="p-posts__title--big">ハッカ油を安全に使うためのルール</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">防虫、消臭、除菌、リラックスなど、さまざまな効果が期待できるハッカ油は使えば使うほど万能で、生活のあらゆる場面で欠かせなくなってきます。しかし、だからこそ知っておきたいのがハッカ油を安全に使うためのルールです。ハッカ油ならではの性質に着目して、保管から具体的な使う上での注意点についてご紹介します</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">防虫、消臭、除菌、リラックスなど、さまざまな効果が期待できるハッカ油は使えば使うほど万能で、生活のあらゆる場面で欠かせなくなってきます。しかし、だからこそ知っておきたいのがハッカ油を安全に使うためのルールです。ハッカ油ならではの性質に着目して、保管から具体的な使う上での注意点についてご紹介します</p>
-                <a href="#" class="p-posts__link sp-only">詳しく見る</a>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--10">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
         <div class="p-posts__item p-posts__item--9">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--9">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img class="pc-only" src="/_public/assets/img/img-pos9.png" alt="ハッカ油の冷却パワーを上手に使おう">
-                  <img class="sp-only" src="/_public/assets/img/img-pos9-sp.png" alt="ハッカ油の冷却パワーを上手に使おう">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <picture>
+                      <source media="(max-width: 767px)" srcset="/_public/assets/img/img-pos9-sp.png">
+                      <img src="/_public/assets/img/img-pos9.png" alt="ハッカ油の冷却パワーを上手に使おう">
+                    </picture>
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small9">涼しいオアシスタイム</p>
+                    <p class="p-posts__title--big">ハッカ油の冷却パワーを上手に使おう</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small9">涼しいオアシスタイム</p>
-                  <p class="p-posts__title--big">ハッカ油の冷却パワーを上手に使おう</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">湯上りやスポーツの後など、熱のこもった体を手早くクールダウンしたい時もハッカ油の出番です。蒸発する際に周囲の熱を奪う性質があるので、さわやかな香りを放ちながらすっきりと冷却してくれます。いつでも手軽に使えるハッカ油の清涼スプレーの作り方を紹介しますので、まずは一本作ってみて、その効果をお試しあれ</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">湯上りやスポーツの後など、熱のこもった体を手早くクールダウンしたい時もハッカ油の出番です。蒸発する際に周囲の熱を奪う性質があるので、さわやかな香りを放ちながらすっきりと冷却してくれます。いつでも手軽に使えるハッカ油の清涼スプレーの作り方を紹介しますので、まずは一本作ってみて、その効果をお試しあれ</p>
-                <a href="#" class="p-posts__link sp-only">詳しく見る</a>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--9">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--8 pc-only">
+        <div class="p-posts__item p-posts__item--8">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--8">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos8.png" alt="ハッカ油でリラックス&リフレッシュ">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos8.png" alt="ハッカ油でリラックス&リフレッシュ">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small8">気分転換の強い味方</p>
+                    <p class="p-posts__title--big">ハッカ油でリラックス&リフレッシュ</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small8">気分転換の強い味方</p>
-                  <p class="p-posts__title--big">ハッカ油でリラックス&リフレッシュ</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">疲れているのに寝付けない、試験勉強がはかどらない、楽しみな旅行も乗り物酔いで台なし……。そんな時こそ、ハッカ油でリラックス＆リフレッシュ。ハッカ油のさわやかな香りは濃度によって効果が異なり、しっかり使えば気分転換に、量を控えれば気持ちを落ち着かせる作用があります。状況に応じてうまく使い分けましょう。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">疲れているのに寝付けない、試験勉強がはかどらない、楽しみな旅行も乗り物酔いで台なし……。そんな時こそ、ハッカ油でリラックス＆リフレッシュ。ハッカ油のさわやかな香りは濃度によって効果が異なり、しっかり使えば気分転換に、量を控えれば気持ちを落ち着かせる作用があります。状況に応じてうまく使い分けましょう。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--8">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--7 pc-only">
+        <div class="p-posts__item p-posts__item--7">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--7">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos7.png" alt="ハッカ油の消臭マジック！">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos7.png" alt="ハッカ油の消臭マジック！">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small7">嫌な匂いはサヨウナラ、ブーツや靴などに</p>
+                    <p class="p-posts__title--big">ハッカ油の消臭マジック！</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small7">嫌な匂いはサヨウナラ、ブーツや靴などに</p>
-                  <p class="p-posts__title--big">ハッカ油の消臭マジック！</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">ニオイ対策にも使用できるハッカ油は、お口の不快感対策の他、排水溝や下駄箱などで消臭剤としても活用できます。消臭スプレーや芳香剤の人工的な香りよりも、気持ち良く使える人が多いはず。体に優しいハッカ油の即席マウスケアや防臭シューピローを作って、ぜひ試してみてください。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">ニオイ対策にも使用できるハッカ油は、お口の不快感対策の他、排水溝や下駄箱などで消臭剤としても活用できます。消臭スプレーや芳香剤の人工的な香りよりも、気持ち良く使える人が多いはず。体に優しいハッカ油の即席マウスケアや防臭シューピローを作って、ぜひ試してみてください。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--7">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--6 pc-only">
+        <div class="p-posts__item p-posts__item--6">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--6">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos6.png" alt="衣類がハッカ油でよみがえる！？">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos6.png" alt="衣類がハッカ油でよみがえる！？">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small6">香りと抗菌のダブルパワー</p>
+                    <p class="p-posts__title--big">衣類がハッカ油でよみがえる！？</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small6">香りと抗菌のダブルパワー</p>
-                  <p class="p-posts__title--big">衣類がハッカ油でよみがえる！？</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">ハッカ油の香りと抗菌効果は、衣類の手入れや保管でも力を発揮。洗濯のすすぎ時に数滴混ぜれば部屋干しする際に雑菌の繁殖を抑えてくれるし、匂い袋にしてタンスに入れれば防虫効果も期待できます。身に付ける自分自身はもちろん、お会いする相手のためにも、ハッカ油を使って衣類を気持ちの良い状態に保ちましょう。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">ハッカ油の香りと抗菌効果は、衣類の手入れや保管でも力を発揮。洗濯のすすぎ時に数滴混ぜれば部屋干しする際に雑菌の繁殖を抑えてくれるし、匂い袋にしてタンスに入れれば防虫効果も期待できます。身に付ける自分自身はもちろん、お会いする相手のためにも、ハッカ油を使って衣類を気持ちの良い状態に保ちましょう。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--6">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--5 pc-only">
+        <div class="p-posts__item p-posts__item--5">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--5">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos5.png" alt="ハッカ油スプレーで携帯ハッカ油を始めよう">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos5.png" alt="ハッカ油スプレーで携帯ハッカ油を始めよう">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small5">いつでもどこでもサッと使える</p>
+                    <p class="p-posts__title--big">ハッカ油スプレーで携帯ハッカ油を始めよう</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small5">いつでもどこでもサッと使える</p>
-                  <p class="p-posts__title--big">ハッカ油スプレーで携帯ハッカ油を始めよう</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">除菌・消臭効果が期待できるハッカ油は、手作りスプレーにして携帯すれば、いろいろなシーンで大活躍。車にこもった嫌な臭い、食事で衣服に付いたきつい匂いも、シュッと一噴きで簡単にリフレッシュ。自然素材だから、小さな子どもを抱っこするママも気持ちよく使えます。万能なハッカ油をしっかり活用してください。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">除菌・消臭効果が期待できるハッカ油は、手作りスプレーにして携帯すれば、いろいろなシーンで大活躍。車にこもった嫌な臭い、食事で衣服に付いたきつい匂いも、シュッと一噴きで簡単にリフレッシュ。自然素材だから、小さな子どもを抱っこするママも気持ちよく使えます。万能なハッカ油をしっかり活用してください。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--5">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--4 pc-only">
+        <div class="p-posts__item p-posts__item--4">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--4">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos4.png" alt="ハッカ油は万能ハウスクリーナー">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos4.png" alt="ハッカ油は万能ハウスクリーナー">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small4">使わないなんてもったいない</p>
+                    <p class="p-posts__title--big">ハッカ油は万能ハウスクリーナー</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small4">使わないなんてもったいない</p>
-                  <p class="p-posts__title--big">ハッカ油は万能ハウスクリーナー</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">自然素材を使って掃除したい人にもハッカ油はおすすめ。除菌・防カビ・消臭効果が期待でき、掃除や食器の手入れにも使えます。炭酸水や重曹に数滴混ぜるだけの簡単クリーナーで、家中ピカピカに磨き上げましょう！ 合成洗剤のように手荒れの心配もなく、何より、さわやかな香りが心地良いため面倒な掃除も頑張れそうです。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">自然素材を使って掃除したい人にもハッカ油はおすすめ。除菌・防カビ・消臭効果が期待でき、掃除や食器の手入れにも使えます。炭酸水や重曹に数滴混ぜるだけの簡単クリーナーで、家中ピカピカに磨き上げましょう！ 合成洗剤のように手荒れの心配もなく、何より、さわやかな香りが心地良いため面倒な掃除も頑張れそうです。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--4">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--3 pc-only">
+        <div class="p-posts__item p-posts__item--3">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--3">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos3.png" alt="ハッカ油で楽しいバスタイム">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos3.png" alt="ハッカ油で楽しいバスタイム">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small3">おうちでサロン気分</p>
+                    <p class="p-posts__title--big">ハッカ油で楽しいバスタイム</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small3">おうちでサロン気分</p>
-                  <p class="p-posts__title--big">ハッカ油で楽しいバスタイム</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">バスタイムを満喫できるさまざまな入浴剤やバスソルトが市販されていますが、実はハッカ油を入浴剤として使ってもOK。湯上りがさっぱりとして、気分爽快！またシャンプーやボディーソープに混ぜて使えば、汗でべたべたする頭皮や肌をすっきり引き締めてくれます。ジメジメする梅雨時期や、汗をかく夏場の入浴には特におすすめです。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">バスタイムを満喫できるさまざまな入浴剤やバスソルトが市販されていますが、実はハッカ油を入浴剤として使ってもOK。湯上りがさっぱりとして、気分爽快！またシャンプーやボディーソープに混ぜて使えば、汗でべたべたする頭皮や肌をすっきり引き締めてくれます。ジメジメする梅雨時期や、汗をかく夏場の入浴には特におすすめです。</p>
-              </div>
+              </a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--3">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--2 pc-only">
+        <div class="p-posts__item p-posts__item--2">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--2">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos2.png" alt="ハッカ油で上手に生活管理！">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos2.png" alt="ハッカ油で上手に生活管理！">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small2">マスクにシュッシュと一噴き</p>
+                    <p class="p-posts__title--big">ハッカ油で上手に生活管理！</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small2">マスクにシュッシュと一噴き</p>
-                  <p class="p-posts__title--big">ハッカ油で上手に生活管理！</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">ハッカ油はマスクにシュッと一噴きすることで生活管理に役立てることができます。体調がすぐれず沈みがちな気分も、清涼感のある香りがリフレッシュしてくれます。ハッカ油を上手に使って、健やかな暮らしを叶えましょう。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">ハッカ油はマスクにシュッと一噴きすることで生活管理に役立てることができます。体調がすぐれず沈みがちな気分も、清涼感のある香りがリフレッシュしてくれます。ハッカ油を上手に使って、健やかな暮らしを叶えましょう。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow p-posts__arrow--2"></div>
+            <div class="p-posts__arrow p-posts__arrow--2">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-        <div class="p-posts__item p-posts__item--1 pc-only">
+        <div class="p-posts__item p-posts__item--1">
           <div class="p-posts__info">
             <div class="p-posts__content p-posts__content--1">
-              <div class="p-posts__media">
-                <div class="p-posts__image">
-                  <img src="/_public/assets/img/img-pos1.png" alt="さわやかハッカ油で虫除け対策！">
+              <a href="#">
+                <div class="p-posts__media">
+                  <div class="p-posts__image">
+                    <img src="/_public/assets/img/img-pos1.png" alt="さわやかハッカ油で虫除け対策！">
+                  </div>
+                  <div class="p-posts__title">
+                    <p class="p-posts__title--small p-posts__title--small1">害虫も怖くない</p>
+                    <p class="p-posts__title--big">さわやかハッカ油で虫除け対策！</p>
+                  </div>
                 </div>
-                <div class="p-posts__title">
-                  <p class="p-posts__title--small p-posts__title--small1">害虫も怖くない</p>
-                  <p class="p-posts__title--big">さわやかハッカ油で虫除け対策！</p>
+                <div class="p-posts__text">
+                  <p class="p-posts__desc">ハッカ油の清涼感ある香りは人間には心地良いですが、多くの害虫は大の苦手。この性質を利用して、安心安全な天然の虫除け剤を手作りしてみましょう。身体に直接湿布するのはもちろん、網戸にシュッと一噴きしたり、キッチンの水回りなどに液剤を染み込ませたコットンを置いたりと、さまざまな用途に使えます。</p>
                 </div>
-              </div>
-              <div class="p-posts__text">
-                <p class="p-posts__desc">ハッカ油の清涼感ある香りは人間には心地良いですが、多くの害虫は大の苦手。この性質を利用して、安心安全な天然の虫除け剤を手作りしてみましょう。身体に直接湿布するのはもちろん、網戸にシュッと一噴きしたり、キッチンの水回りなどに液剤を染み込ませたコットンを置いたりと、さまざまな用途に使えます。</p>
-              </div>
+              </a>
+              <a href="#" class="p-posts__link u-sp--only">詳しく見る</a>
             </div>
-            <div class="p-posts__arrow"></div>
+            <div class="p-posts__arrow p-posts__arrow--1">
+              <figure class="u-pc--only">
+                <img src="/_public/assets/img/img-arrow1.png" alt="Image arrow">
+              </figure>
+              <figure class="u-sp--only">
+                <img src="/_public/assets/img/img-arrow2.png" alt="Image arrow">
+                <img src="/_public/assets/img/img-arrow2-down.png" alt="Image arrow">
+              </figure>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="p-posts__banner p-posts__banner--last">
-        <img class="pc-only" src="/_public/assets/img/sub-banner2.png" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
-        <img class="sp-only" src="/_public/assets/img/sub-banner2-sp.png" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
       </div>
     </div>
   </section>
+  <div id="p-banner" class="p-banner">
+    <div class="p-banner__main">
+      <picture>
+        <source media="(max-width: 767px)" srcset="/_public/assets/img/sub-banner2-sp.jpg">
+        <img src="/_public/assets/img/sub-banner2.jpg" alt="日々の暮らしにお役立ち「ハッカ油コラム」へ">
+      </picture>
+    </div>
+  </div>
 </main>
 <!-- @@content -->
-
-<!-- @script -->
-<script>
-  console.log("home page");
-</script>
-<!-- @@script -->
