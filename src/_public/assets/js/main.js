@@ -45,8 +45,7 @@ $('.p-points__image--more').click(function(){
 });
 
 // List Posts
-if(isMobile()){
-  console.log(22222);
+if(isMobile() || window.innerWidth < 767){
   $('.p-posts__link').hide();
   $('.p-posts__link--top').show();
 
