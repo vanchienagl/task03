@@ -129,37 +129,37 @@ Css of home page
         &--1 {
             top: -27px;
             left: 162px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble 3s ease-in-out infinite;
         }
 
         &--2 {
             top: -52px;
             left: 714px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble2 3s ease-in-out infinite;
         }
 
         &--3 {
             top: -4px;
             right: -126px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble 3s ease-in-out infinite;
         }
 
         &--4 {
             left: -72px;
             bottom: 47px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble 3s ease-in-out infinite;
         }
 
         &--5 {
             left: 177px;
             bottom: -30px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble2 3s ease-in-out infinite;
         }
 
         &--6 {
             right: 45px;
             bottom: -47px;
-            animation: bubble 4s ease-in-out infinite;
+            animation: bubble 3s ease-in-out infinite;
         }
 
         @keyframes bubble {
@@ -173,6 +173,19 @@ Css of home page
 
             100% {
                 transform: translate(0, 0);
+            }
+        }
+        @keyframes bubble2 {
+            0% {
+                transform: translate(0, 30px);
+            }
+
+            50% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(0, 30px);
             }
         }
     }
@@ -275,7 +288,7 @@ Css of home page
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
             }
 
             &--textimg {
@@ -316,13 +329,15 @@ Css of home page
     // Laptop
     @media screen and (min-width: 1024px) and (max-width: 1919px) {
         padding: 0 30px;
-        &__mainbanner{
-            &--info{
+
+        &__mainbanner {
+            &--info {
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
             }
         }
+
         &__bubbleitem {
             &--1 {
                 left: 20%;
@@ -335,6 +350,7 @@ Css of home page
             &--3 {
                 left: 90%;
             }
+
             &--4 {
                 left: 0%;
             }
@@ -357,7 +373,7 @@ Css of home page
 
     &__heading {
         font-size: 4.6rem;
-        font-weight: 700;
+        font-weight: 400;
         letter-spacing: 9px;
         text-align: center;
         line-height: 1;
@@ -843,52 +859,127 @@ Css of home page
                 margin-bottom: 100px;
             }
         }
-        &__name--3{
+
+        &__name--3 {
             width: 190px;
         }
+
         &__name--7,
         &__name--8 {
             left: 100%;
             margin-left: 0;
         }
-        &__name--8{
+
+        &__name--8 {
             width: 110px;
         }
     }
 
     // Laptop
     @media screen and (min-width: 1024px) and (max-width: 1919px) {
-        padding: 0 60px;
+        padding: 0 30px;
         margin-bottom: 30px;
 
         &__heading {
-            margin-bottom: 55px;
+            margin-bottom: 10px;
+            padding-right: 70px;
         }
 
         &__list {
             position: static;
+            justify-content: center;
         }
 
         &__item {
-            width: calc(100%/2 - 50px);
-            margin: 0 0 50px 50px;
+            width: calc(100%/4 - 15px);
+            margin: 0 0 30px 15px;
+
+            &--1 {
+                width: calc(25% - 85px);
+                margin-left: 75px;
+            }
 
             &--2,
-            &--4 {
-                margin-bottom: 100px;
+            &--3 {
+                margin-top: 45px;
+            }
+
+            &--5 {
+                width: calc(25% - 70px);
+                margin-top: 70px;
+            }
+
+            &--6 {
+                margin-top: 120px;
+            }
+
+            &--7 {
+                width: calc(25% - 85px);
+                margin-left: 110px;
+                margin-top: 88px;
+            }
+
+            &--8 {
+                width: calc(25% - 50px);
+                margin-left: 78px;
             }
         }
-        &__name--3{
-            width: 190px;
+
+        &__name--2 {
+            width: 150px;
+
+            span {
+                text-align: left;
+                padding-left: 5px;
+            }
         }
-        &__name--7,
+
+        &__name--3 {
+            width: 120px;
+
+            span {
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+
+        &__name--4 {
+            width: 160px;
+
+            span {
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+
+        &__name--5 {
+            width: 100px;
+
+            span {
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+
+        &__name--6 {
+            width: 100px;
+
+            span {
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+
         &__name--8 {
-            left: 100%;
-            margin-left: 0;
+            width: 130px;
+            margin-left: -120px;
+
+            span {
+                text-align: right;
+                padding-right: 15px;
+            }
         }
-        &__name--8{
-            width: 110px;
-        }
+        
     }
     
     
@@ -1047,7 +1138,7 @@ Css of home page
             bottom: 0;
             margin: 20px;
             padding: 50px 40px;
-            border-radius: 24px;
+            border-radius: 26px;
             text-align: center;
 
             &--7 {
@@ -1382,9 +1473,10 @@ Css of home page
     @media screen and (min-width:768px) and (max-width: 1023.98px) {
         padding: 0 50px;
 
-        &__header{
+        &__header {
             margin-left: 0;
         }
+
         &__content {
             flex-wrap: wrap;
             margin-left: 0;
@@ -1394,7 +1486,8 @@ Css of home page
             max-width: 500px;
             width: 100%;
             margin: 0 auto 50px;
-            &content{
+
+            &content {
                 padding-top: 150px;
             }
         }
@@ -1417,7 +1510,8 @@ Css of home page
         &__item {
             width: calc(100%/3 - 20px);
             margin-bottom: 20px;
-            &content{
+
+            &content {
                 padding: 25px;
             }
         }
@@ -1504,6 +1598,7 @@ Css of home page
 
         &__item {
             margin-bottom: 34px;
+
             &:last-of-type {
                 margin-bottom: 34px;
             }
@@ -1578,7 +1673,8 @@ Css of home page
         &:hover {
             opacity: 0.7;
         }
-        &--2{
+
+        &--2 {
             padding-bottom: 30px;
         }
     }
@@ -1656,7 +1752,8 @@ Css of home page
         left: 100%;
         transform: translateX(-100%);
         margin-top: 30px;
-        &--2{
+
+        &--2 {
             margin-top: 50px;
         }
     }
@@ -1686,7 +1783,8 @@ Css of home page
             margin-bottom: 40px;
             padding-bottom: 0;
             border: 0;
-            &--10{
+
+            &--10 {
                 margin-bottom: 39px;
             }
 
@@ -1778,11 +1876,11 @@ Css of home page
             transform: none;
             margin-top: 15px;
             
-            &--11{
+            &--11 {
                 margin-top: 20px;
             }
 
-            &--9{
+            &--9 {
                 margin-top: 13px;
             }
 

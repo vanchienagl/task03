@@ -257,7 +257,7 @@
                 width: 200px;
                 height: 160px;
                 top: -30px;
-                left: 180px;
+                left: 35%;
 
                 &.is-active {
                     top: -30px;
@@ -293,8 +293,8 @@
             z-index: 3;
 
             img {
-                width: 90px;
-                height: 90px;
+                width: 60px;
+                height: 60px;
             }
 
             &--close {
@@ -305,8 +305,8 @@
                 left: 15px;
 
                 img {
-                    width: 90px;
-                    height: 90px;
+                    width: 60px;
+                    height: 60px;
                 }
             }
         }
@@ -376,5 +376,31 @@
             }
         }
     }
+
+    // Laptop
+    @media screen and (min-width: 1024px) and (max-width: 1190px) {
+        &__leaf {
+            position: absolute;
+
+            &--tl {
+                top: -30px;
+                width: 200px;
+
+                &.is-active {
+                    top: -30px;
+                }
+            }
+
+            &--tr {
+                right: -30px;
+                width: 150px;
+
+                &.is-active {
+                    right: -30px;
+                }
+            }
+        }
+    }
+    
     
 }
