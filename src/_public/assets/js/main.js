@@ -1,18 +1,7 @@
 // Detect mobile
 function isMobile(){
-  //var isMobile = (/iphone|ipod|android|ie|blackberry|fennec/).test(navigator.userAgent.toLowerCase());
-  const toMatch = [
-    /Android/i,
-    /webOS/i,
-    /iPhone/i,
-    /iPad/i,
-    /iPod/i,
-    /BlackBerry/i,
-    /Windows Phone/i
-  ];
-  return toMatch.some((toMatchItem) => {
-    return navigator.userAgent.match(toMatchItem);
-  });
+  var isMobile = (/iphone|ipod|android|ie|blackberry|fennec/).test(navigator.userAgent.toLowerCase());
+  return isMobile;
 }
 
 // Toogle menu
@@ -79,4 +68,20 @@ $(window).scroll(function() {
   }
 });
 
-
+// Fix scroll smooth in IE11
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+if(isIE11){
+  $(document).ready(function() {
+    $(".c-header__menu--link").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html,body').animate({
+          scrollTop: $(hash).offset().top
+        }, 1200, function() {
+          window.location.hash = hash;
+        });
+      }
+    });
+  });
+}

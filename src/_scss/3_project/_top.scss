@@ -107,6 +107,12 @@ Css of home page
             left: 4px;
             letter-spacing: 5px;
             padding-left: 4px;
+
+            // Detect IE:
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                padding-left: 10px;
+                padding-top: 4px;
+            }
         }
     }
 
@@ -1870,7 +1876,7 @@ Css of home page
             width: 100%;
             justify-content: center;
             height: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             position: static;
             left: auto;
             transform: none;
