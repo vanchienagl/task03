@@ -1445,7 +1445,7 @@ Css of home page
         }
 
         &__logos {
-            max-width: 375px;
+            max-width: 315px;
             margin: 0 auto;
             padding: 0 0 57px;
 
@@ -1614,12 +1614,12 @@ Css of home page
 
         &__heading {
             font-size: 2rem;
-            margin-bottom: 25px;
+            margin-bottom: 26px;
             letter-spacing: 2px;
         }
 
         &__item {
-            margin-bottom: 34px;
+            margin-bottom: 25px;
 
             &:last-of-type {
                 margin-bottom: 34px;
@@ -1627,20 +1627,24 @@ Css of home page
         }
 
         &__question {
-            padding-left: 51px;
+            display: flex;
+            align-items: center;
+            padding-left: 0;
             margin-bottom: 6px;
             letter-spacing: 0.2px;
-            position: relative;
-            left: -1px;
 
             &--2 {
-                margin-bottom: 18px;
+                margin-bottom: 10px;
             }
 
             &::before {
+                position: static;
+                transform: none;
                 width: 40px;
                 height: 37px;
                 background-size: contain;
+                flex-shrink: 0;
+                margin-right: 10px;
             }
         }
 
