@@ -25,12 +25,20 @@ $('.c-header__menu--link').click(function(){
   $('.c-header__menu').removeClass('is-show')
 });
 
+$('.c-header__iconmenu').click(function(){
+  $("body").css({"overflow":"hidden"});
+});
+
+$('.c-header__iconmenu--close').click(function(){
+  $("body").css({"overflow":"visible"});
+});
+
 
 // List Points
 $('.p-points__image--more').click(function(){
   var itemCurrent = $(this).parent('.p-points__item');
-  itemCurrent.find('.p-points__itemcontent').fadeIn();
-  itemCurrent.siblings('.p-points__item').find('.p-points__itemcontent').fadeOut();
+  itemCurrent.find('.p-points__itemcontent').fadeIn(200).addClass('is-active');
+  itemCurrent.siblings('.p-points__item').find('.p-points__itemcontent').fadeOut(100).removeClass('is-active');
 });
 
 // List Posts

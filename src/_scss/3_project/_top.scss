@@ -181,6 +181,7 @@ Css of home page
                 transform: translate(0, 0);
             }
         }
+
         @keyframes bubble2 {
             0% {
                 transform: translate(0, 30px);
@@ -291,10 +292,9 @@ Css of home page
 
         &__mainbanner {
             &--info {
-                position: absolute;
                 top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                left: 3%;
+                transform: translateY(-50%);
             }
 
             &--textimg {
@@ -329,7 +329,14 @@ Css of home page
                 font-size: 2.7rem;
             }
         }
-        
+    }
+
+    @media screen and (min-width: 992px) {
+        &__mainbanner {
+            &--info {
+                left: 7%;
+            }
+        }
     }
 
     // Laptop
@@ -339,8 +346,14 @@ Css of home page
         &__mainbanner {
             &--info {
                 top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                left: 15%;
+                transform: translateY(-50%);
+            }
+
+            &--text {
+                &3 {
+                    font-size: 1.5rem;
+                }
             }
         }
 
@@ -649,76 +662,76 @@ Css of home page
                 width: 98px;
                 margin: 0 0 15px 49px;
             }
-    
+
             &--2 {
                 width: 35px;
                 margin: 0 50px 15px auto;
             }
-    
+
             &--3 {
                 width: 222px;
                 margin: 0 0 40px;
             }
-    
+
             &--4 {
                 width: 30px;
                 margin: 0 99px 14px auto;
             }
-    
+
             &--5 {
                 width: 193px;
                 margin: 0 0 67px;
             }
-    
+
             &--6 {
                 width: 109px;
                 margin: 0 50px 16px auto;
             }
-    
+
             &--7 {
                 width: 157px;
                 margin: 0 0 15px 7px;
             }
-    
+
             &--8 {
                 width: 81px;
                 margin: 0 50px 0 auto;
             }
         }
-    
+
         &__image {
             &--1 {
                 width: 30px;
             }
-    
+
             &--2 {
                 width: 35px;
             }
-    
+
             &--3 {
                 width: 43px;
             }
-    
+
             &--4 {
                 width: 30px;
             }
-    
+
             &--5 {
                 width: 38px;
             }
-    
+
             &--6 {
                 width: 109px;
             }
-    
+
             &--7 {
                 width: 63px;
             }
-    
+
             &--8 {
                 width: 81px;
             }
-    
+
             &--title {
                 &1 {
                     width: 126px;
@@ -739,7 +752,7 @@ Css of home page
                 }
             }
         }
-    
+
         &__name {
             span {
                 font-size: 1.3rem;
@@ -749,7 +762,7 @@ Css of home page
                     background-position: bottom;
                 }
             }
-    
+
             &--1 {
                 width: 67px;
                 top: 27px;
@@ -759,7 +772,7 @@ Css of home page
                     letter-spacing: 1.3px;
                 }
             }
-    
+
             &--2 {
                 width: 173px;
                 margin-left: -208px;
@@ -771,7 +784,7 @@ Css of home page
                     letter-spacing: 1.8px;
                 }
             }
-    
+
             &--3 {
                 width: 182px;
                 top: 28px;
@@ -782,7 +795,7 @@ Css of home page
                     letter-spacing: 1.7px;
                 }
             }
-    
+
             &--4 {
                 width: 198px;
                 margin-left: -228px;
@@ -794,7 +807,7 @@ Css of home page
                     letter-spacing: 1.7px;
                 }
             }
-    
+
             &--5 {
                 width: 158px;
                 top: 29px;
@@ -805,7 +818,7 @@ Css of home page
                     letter-spacing: 1.8px;
                 }
             }
-    
+
             &--6 {
                 width: 117px;
                 margin-left: -199px;
@@ -817,7 +830,7 @@ Css of home page
                     letter-spacing: 1.8px;
                 }
             }
-    
+
             &--7 {
                 width: 97px;
                 margin-left: 62px;
@@ -829,7 +842,7 @@ Css of home page
                     letter-spacing: 1.8px;
                 }
             }
-    
+
             &--8 {
                 width: 124px;
                 top: 24px;
@@ -857,7 +870,7 @@ Css of home page
         }
 
         &__item {
-            width: calc(100%/2 - 50px);
+            width: calc(100% / 2 - 50px);
             margin: 0 0 50px 50px;
 
             &--2,
@@ -897,7 +910,7 @@ Css of home page
         }
 
         &__item {
-            width: calc(100%/4 - 15px);
+            width: calc(100% / 4 - 15px);
             margin: 0 0 30px 15px;
 
             &--1 {
@@ -985,10 +998,7 @@ Css of home page
                 padding-right: 15px;
             }
         }
-        
     }
-    
-    
 }
 
 // Section Points
@@ -1105,7 +1115,7 @@ Css of home page
         }
 
         &--desc {
-            line-height: calc(26 /14);
+            line-height: calc(26 / 14);
             letter-spacing: 1.4px;
             margin-left: 1px;
 
@@ -1130,7 +1140,7 @@ Css of home page
     }
 
     &__item {
-        width: calc(100%/3 - 20px);
+        width: calc(100% / 3 - 20px);
         margin-left: 20px;
         position: relative;
 
@@ -1176,7 +1186,7 @@ Css of home page
 
             &--desc {
                 font-size: 1.2rem;
-                line-height: calc(21/12);
+                line-height: calc(21 / 12);
                 margin-bottom: 31px;
                 letter-spacing: 1.2px;
                 text-align: left;
@@ -1211,6 +1221,10 @@ Css of home page
             right: 20px;
             bottom: 20px;
             cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
         }
     }
 
@@ -1237,7 +1251,7 @@ Css of home page
 
         &--item {
             margin-left: 20px;
-            width: calc(100%/4 - 20px);
+            width: calc(100% / 4 - 20px);
 
             img {
                 border-radius: 20px;
@@ -1254,12 +1268,10 @@ Css of home page
 
     // Smart phone
     @include sp {
-        max-width: 345px;
-        padding: 0 15px;
-        margin: 0 auto;
-
         &__main {
-            padding: 38px 0 17px;
+            max-width: 345px;
+            padding: 38px 15px 17px;
+            margin: 0 auto;
         }
 
         &__box {
@@ -1322,9 +1334,7 @@ Css of home page
                     top: -3px;
                     left: 0;
                 }
-
             }
-
 
             &--heading {
                 font-size: 2rem;
@@ -1366,7 +1376,7 @@ Css of home page
 
             &--desc {
                 font-size: 1.3rem;
-                line-height: calc(22/13);
+                line-height: calc(22 / 13);
                 letter-spacing: 1.2px;
                 max-width: none;
                 margin-left: 0;
@@ -1404,7 +1414,7 @@ Css of home page
 
                 &--desc {
                     font-size: 1.3rem;
-                    line-height: calc(22 /13);
+                    line-height: calc(22 / 13);
                     margin-bottom: 20px;
                     letter-spacing: 1.3px;
                     top: 0;
@@ -1435,11 +1445,13 @@ Css of home page
         }
 
         &__logos {
-            padding-bottom: 57px;
+            max-width: 375px;
+            margin: 0 auto;
+            padding: 0 0 57px;
 
             &--title {
                 font-size: 1.8rem;
-                line-height: calc(30/ 18);
+                line-height: calc(30 / 18);
                 margin-bottom: 23px;
                 letter-spacing: 1.6px;
                 position: relative;
@@ -1456,7 +1468,7 @@ Css of home page
             &--item {
                 margin-left: 25px;
                 margin-bottom: 25px;
-                width: calc(100%/2 - 25px);
+                width: calc(100% / 2 - 25px);
 
                 img {
                     border-radius: 10px;
@@ -1465,7 +1477,7 @@ Css of home page
 
             &--desc {
                 font-size: 1.3rem;
-                line-height: calc(21/13);
+                line-height: calc(21 / 13);
                 letter-spacing: 1.3px;
             }
 
@@ -1476,7 +1488,7 @@ Css of home page
     }
 
     // Tablet
-    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
         padding: 0 50px;
 
         &__header {
@@ -1514,11 +1526,17 @@ Css of home page
         }
 
         &__item {
-            width: calc(100%/3 - 20px);
+            width: calc(100% / 3 - 20px);
             margin-bottom: 20px;
 
             &content {
                 padding: 25px;
+
+                &.is-active {
+                    display: flex !important;
+                    flex-direction: column;
+                    justify-content: center;
+                }
             }
         }
 
@@ -1528,8 +1546,6 @@ Css of home page
             }
         }
     }
-    
-    
 }
 
 // Section Q&A
@@ -1581,7 +1597,7 @@ Css of home page
 
     &__answer {
         font-size: 1.4rem;
-        line-height: calc(21 /14);
+        line-height: calc(21 / 14);
         color: $color-secondary;
         letter-spacing: 1.4px;
     }
@@ -1609,7 +1625,7 @@ Css of home page
                 margin-bottom: 34px;
             }
         }
-        
+
         &__question {
             padding-left: 51px;
             margin-bottom: 6px;
@@ -1630,7 +1646,7 @@ Css of home page
 
         &__answer {
             font-size: 1.3rem;
-            line-height: calc(22 /13);
+            line-height: calc(22 / 13);
             letter-spacing: 1.2px;
             position: relative;
             left: 1px;
@@ -1638,10 +1654,9 @@ Css of home page
     }
 
     // Tablet
-    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
         padding: 0 60px;
     }
-    
 }
 
 // Section Posts
@@ -1733,7 +1748,7 @@ Css of home page
         font-size: 1.4rem;
         font-weight: 400;
         color: $color-secondary;
-        line-height: calc(21 /14);
+        line-height: calc(21 / 14);
         letter-spacing: 1.7px;
         margin-left: -1px;
         padding-right: 30px;
@@ -1790,7 +1805,7 @@ Css of home page
             padding-bottom: 0;
             border: 0;
 
-            &--10 {
+            &--11 {
                 margin-bottom: 39px;
             }
 
@@ -1807,7 +1822,6 @@ Css of home page
         &__content {
             padding-right: 0;
             position: relative;
-           
         }
 
         &__media {
@@ -1841,7 +1855,7 @@ Css of home page
 
             &--big {
                 font-size: 1.5rem;
-                line-height: calc(25 /15);
+                line-height: calc(25 / 15);
                 letter-spacing: 1.5px;
             }
         }
@@ -1855,11 +1869,10 @@ Css of home page
                 display: block;
             }
         }
-        
 
         &__desc {
             font-size: 1.3rem;
-            line-height: calc(22 /13);
+            line-height: calc(22 / 13);
             letter-spacing: 1.3px;
             margin-left: 0;
             position: relative;
@@ -1881,7 +1894,7 @@ Css of home page
             left: auto;
             transform: none;
             margin-top: 15px;
-            
+
             &--11 {
                 margin-top: 20px;
             }
@@ -1916,7 +1929,7 @@ Css of home page
     }
 
     // Tablet
-    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
         padding: 0 30px;
 
         &__list {
@@ -1932,7 +1945,6 @@ Css of home page
             padding: 0;
         }
     }
-    
 }
 
 // Section Banner
@@ -1965,7 +1977,7 @@ Css of home page
     }
 
     // Tablet
-    @media screen and (min-width:768px) and (max-width: 1023.98px) {
+    @media screen and (min-width: 768px) and (max-width: 1023.98px) {
         padding: 0 30px;
     }
 
@@ -1973,5 +1985,4 @@ Css of home page
     @media screen and (min-width: 1024px) and (max-width: 1919px) {
         padding: 0 30px;
     }
-    
 }
